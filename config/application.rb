@@ -21,6 +21,14 @@ Bundler.require(*Rails.groups)
 module Project5
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+
+    # Adding cookies and session middleware
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+    
+    # Use SameSite=Strict for all cookies to help protect against CSRF
+    # https://owasp.org/www-community/SameSite
+    config.action_dispatch.cookies_same_site_protection = :strict
     config.load_defaults 7.0
 
     # Configuration for the application, engines, and railties goes here.
