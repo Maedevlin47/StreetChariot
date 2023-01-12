@@ -1,9 +1,9 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import {Route, Routes} from 'react-router-dom';
-// import {Route, Routes} from 'react-router-dom';
-// import Login from './Login';
 import SignUp from './SignUp';
+import Login from './Login';
+
 
 function App() {
 
@@ -16,17 +16,16 @@ function App() {
       .then((user) => setUser(user))
       },[])
   
-  
-  
-  
+  console.log(user)
+
   return (
     <div className="App">
       <header className="App-header">
       {/* <Navbar/> */}
-      <SignUp/>
       </header>
       <Routes>
         <Route exact path="/signup" element={<SignUp user= {user} setUser= {setUser} />}/>
+        <Route exact path="/login" element={<Login  user= {user} setUser= {setUser} />}/>
       </Routes>
     </div>
   );
