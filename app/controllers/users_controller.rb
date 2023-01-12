@@ -20,11 +20,11 @@ class UsersController < ApplicationController
             end
         end
         
-        private
+    private########################################################################
     
         def user_params
-        params.permit(:username, :password, :password_confirmation)
+
+        params.permit(:name, :username, :birthdate, :city, :state, :password, :password_d)
         end
     
-    end
 end

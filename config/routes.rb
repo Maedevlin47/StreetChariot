@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :favorites
   resources :services
-  resources :users
+  # resources :users, only: [:index, :create, :show, :update]
 
   get "/users", to: "users#index"
 

@@ -33,7 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_203401) do
     t.date "birthdate"
     t.string "city"
     t.string "state"
-    t.string "password_disgest"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

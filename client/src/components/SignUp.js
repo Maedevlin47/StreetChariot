@@ -1,15 +1,15 @@
 import {useState} from "react"
 
 function SignUp ({user, setUser}) {
+    console.log("SignUp")
 
-
-const [fullName, setFullName] = useState ("")
-const [userName, setUserName] = useState ("")
-const [birthdate, setBirthdate] = useState ("")
-const [city, setCity] = useState ("")
-const [state, setState] = useState ("")
-const [password, setPassword] = useState("");
-const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    const [name, setName] = useState ("")
+    const [userName, setUserName] = useState ("")
+    const [birthdate, setBirthdate] = useState ("")
+    const [city, setCity] = useState ("")
+    const [state, setState] = useState ("")
+    const [password, setPassword] = useState("");
+    const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
 
     function handleSubmit(e) {
@@ -20,7 +20,7 @@ const [passwordConfirmation, setPasswordConfirmation] = useState("");
             "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                fullname: fullName,
+                name: name,
                 username: userName,
                 birthdate: birthdate,
                 city: city,
@@ -42,7 +42,7 @@ const [passwordConfirmation, setPasswordConfirmation] = useState("");
         
 
     return (
-        <div>
+        <div className="signup">
             <form onSubmit={handleSubmit}>
                 <h1>Sign Up</h1>
                 <br/>
@@ -51,8 +51,8 @@ const [passwordConfirmation, setPasswordConfirmation] = useState("");
                     type="text"
                     id="name"
                     placeholder="Full name"
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                 />
                 <br/>
                 <label >Username:</label>

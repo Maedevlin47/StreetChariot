@@ -30,7 +30,7 @@ function Login({ user, setUser }) {
     }
 
     return (
-        <div>
+        <div className="login">
         <form onSubmit={handleSubmit}>
         <h1>Login</h1>
         <label>Username</label>

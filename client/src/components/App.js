@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header">Welcome
       {/* <Navbar/> */}
       </header>
       <Routes>
@@ -36,7 +36,8 @@ export default App;
 
 
 
-
+{/* <Route exact path="/signup" element={<SignUp user= {user} setUser= {setUser} />}/>
+<Route exact path="/login" element={<Login  user= {user} setUser= {setUser} />}/> */}
 
 
 

@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.date :birthdate
       t.string :city
       t.string :state
-      t.string :password_disgest
+      t.string :password_digest
 
       t.timestamps
     end
