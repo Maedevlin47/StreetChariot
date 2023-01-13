@@ -2,7 +2,8 @@ import {useState} from "react"
 
 function SignUp ({user, setUser}) {
     console.log("SignUp")
-
+    
+    // form data
     const [name, setName] = useState ("")
     const [userName, setUserName] = useState ("")
     const [birthdate, setBirthdate] = useState ("")
@@ -10,6 +11,7 @@ function SignUp ({user, setUser}) {
     const [state, setState] = useState ("")
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
+
 
 
     function handleSubmit(e) {
@@ -35,14 +37,23 @@ function SignUp ({user, setUser}) {
             .then((user) => setUser(user));
             }
         });
+        setTimeout(() =>{
+            setName("")
+            setUserName("")
+            setBirthdate("")
+            setCity("")
+            setState("")
+            setPassword("")
+            setPasswordConfirmation("")
+            }, 1000)
         }
-
+        // console.log(signupData)
         console.log(user)
-
+        
         
 
     return (
-        <div className="signup">
+        <div className="Signup">
             <form onSubmit={handleSubmit}>
                 <h1>Sign Up</h1>
                 <br/>
@@ -60,7 +71,7 @@ function SignUp ({user, setUser}) {
                     type="text"
                     id="username"
                     autoComplete="off"
-                    placeholder="Something Easy to Remember! Can use your email without the @url"
+                    placeholder="Simple is key!"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
                 />
@@ -87,7 +98,7 @@ function SignUp ({user, setUser}) {
                 <input
                         type="state"
                         id="state"
-                        placeholder="State Name"
+                        placeholder="State Abbreviation(NY)"
                         value={state}
                         onChange={(e) => setState(e.target.value)}
                 />
@@ -122,14 +133,31 @@ function SignUp ({user, setUser}) {
 }
 export default SignUp;
 
-// const [signupData,setSignupData] = useState ({
-    //     fullname: "",
-    //     username: "",
-    //     birthdate: "",
-    //     city: "",
-    //     state: "",
-    //     password: "",
-    //     password_confirmation: ""
+
+
+
+
+
+    // for getting the form to rerender
+    // const [signupData,setSignupData] = useState ('')
+    // ({name: "", username: "", birthdate: "", 
+    // city: "", state: "", password: "", password_confirmation: ""})
+
+
+
+     // useEffect (() => {
+        //     if(user) {
+        //         setSignupData({name: "", username: "", birthdate: "", city: "", state: "", password: "", password_confirmation: ""});
+        //         setUser("")
+        //     }
+        // }, [setUser, signupData]);
+        
+    
+
+
+    // for getting the form to rerender
+    // const [signupData,setSignupData] = useState ({name: "", username: "", birthdate: "", 
+    // city: "", state: "", password: "", password_confirmation: ""})
     
     // const handleChange = (e) => {
     //     setSignupData({[e.target.name]: e.target.value})

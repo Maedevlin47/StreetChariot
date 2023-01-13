@@ -7,6 +7,9 @@ function Login({ user, setUser }) {
 
     console.log(user)
 
+    // let navigate = useNavigate()
+
+
     function handleSubmit(e) {
         e.preventDefault();
         fetch("/login", {
@@ -19,6 +22,7 @@ function Login({ user, setUser }) {
             if (r.ok) {
                 r.json().then((user) => {
                     setUser(user)
+                    // navigate('/home')
                 })
             } else {
                 r.json().then(json => {
@@ -27,10 +31,15 @@ function Login({ user, setUser }) {
                 })
             }
         });
+        setTimeout(() =>{
+            setUsername("")
+            setPassword("")
+            setErrors("")
+            }, 1000)
     }
 
     return (
-        <div className="login">
+        <div className="Login">
         <form onSubmit={handleSubmit}>
         <h1>Login</h1>
         <label>Username</label>

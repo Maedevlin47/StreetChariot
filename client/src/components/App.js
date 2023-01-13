@@ -6,7 +6,9 @@ import Login from './Login';
 
 
 function App() {
+    
 
+    
     const [user, setUser]= useState(null)
     console.log(user)
 
@@ -17,6 +19,9 @@ function App() {
       },[])
   
   console.log(user)
+
+
+
 
   return (
     <div className="App">
