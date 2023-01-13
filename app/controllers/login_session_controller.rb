@@ -1,5 +1,5 @@
 class LoginSessionController < ApplicationController
-    # skip_before_action :authorize, only: [:create]
+    skip_before_action :authorize_login, only: [:create]
 
     def show
         user_logged_in = User.find_by_id(session[:user_id])

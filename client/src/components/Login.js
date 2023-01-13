@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function Login({ user, setUser }) {
     const [username, setUsername] = useState("");
@@ -7,7 +9,7 @@ function Login({ user, setUser }) {
 
     console.log(user)
 
-    // let navigate = useNavigate()
+    let navigate = useNavigate()
 
 
     function handleSubmit(e) {
@@ -22,7 +24,7 @@ function Login({ user, setUser }) {
             if (r.ok) {
                 r.json().then((user) => {
                     setUser(user)
-                    // navigate('/home')
+                    navigate('/home')
                 })
             } else {
                 r.json().then(json => {

@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 import {Route, Routes} from 'react-router-dom';
 import SignUp from './SignUp';
 import Login from './Login';
+import UserHome from './UserHome';
+import NavBar from './NavBar';
+import LogOut from './LogOut';
 
 
 function App() {
@@ -26,11 +29,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">Welcome
-      {/* <Navbar/> */}
+      <NavBar/>
       </header>
       <Routes>
         <Route exact path="/signup" element={<SignUp user= {user} setUser= {setUser} />}/>
         <Route exact path="/login" element={<Login  user= {user} setUser= {setUser} />}/>
+        <Route exact path="/userhome" element={<UserHome user={user} setUser ={setUser}/>}/>
+        <Route exact path="/logout" element={<LogOut user= {user} setUser= {setUser} />}/>
+
       </Routes>
     </div>
   );

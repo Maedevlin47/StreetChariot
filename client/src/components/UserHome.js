@@ -1,8 +1,19 @@
-// import React from "react";
+import React from "react";
 
 
-// function () {
-//     return (  );
-// }
+function UserHome ({user, setUser}) {
+    
+    
+    
+    
+    
+    return (  
+        <div className="userhome"> Let's Burn some Rubber!
+            <h1 className="userinfo"> </h1>
+            <h2 className="tranportlist"> </h2>
+            <h2 className="favorites"> </h2>
+        </div>
+    )
+}
 
-// export default ;
+export default UserHome;

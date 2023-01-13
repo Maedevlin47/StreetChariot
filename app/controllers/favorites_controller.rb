@@ -1,4 +1,4 @@
 class FavoritesController < ApplicationController
-    # skip_before_action :authorize, only: [:index]
+    # skip_before_action :authorize_login, only: [:index]
 
 end

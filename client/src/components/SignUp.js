@@ -53,7 +53,7 @@ function SignUp ({user, setUser}) {
         
 
     return (
-        <div className="Signup">
+        <div className="signup">
             <form onSubmit={handleSubmit}>
                 <h1>Sign Up</h1>
                 <br/>
