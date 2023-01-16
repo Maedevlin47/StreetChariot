@@ -10,7 +10,6 @@ function Navbar ({user}) {
                 
                 (
                 <div className="loggedin">
-                <NavLink className="login" to="/login">Login</NavLink>
                 <NavLink className="logout" to="/logout">Logout</NavLink>
                 <NavLink className="userhome" to="/userhome">Home</NavLink>
                 </div>

@@ -17,7 +17,6 @@ puts "Creating Users"
     city: Faker::Address.city,
     state: Faker::Address.state_abbr,
     password: "1")}
-    # user_id: Faker::Number.between(from: 0, to: 10)
 
 puts "Creating Services"
 

@@ -1,19 +1,51 @@
-import React from "react";
-
+import {useEffect, useState} from "react";
+import ServicesPage from './ServicesPage';
+// import {Route, Routes} from 'react-router-dom';
+import ServicesButton from "./ServicesButton";
+// import ServicesButton from "./ServicesButton;
+import FavoritesPage from "./FavoritesPage";
+import FavoritesButton from "./FavoritesButton";
 
 function UserHome ({user, setUser}) {
     
+    const [allServices, setAllServices] = useState([])
     
+    useEffect(() => {
+        fetch("/services")
+        .then(r => r.json())
+        .then(setAllServices)
+    }, [])
     
     
     
     return (  
-        <div className="userhome"> Let's Burn some Rubber!
+        <div className="userhome"> 
+            <header>Let's get you moving!</header>
             <h1 className="userinfo"> </h1>
             <h2 className="tranportlist"> </h2>
             <h2 className="favorites"> </h2>
+
+            <ServicesPage user ={user} setUser ={setUser} allServices ={allServices} setAllServices ={setAllServices}/>
+            <ServicesButton user ={user} setUser ={setUser} allServices ={allServices} setAllServices ={setAllServices}/>
+            <FavoritesPage user ={user} setUser ={setUser} allServices ={allServices} setAllServices ={setAllServices}/>
+            <br />
+            <FavoritesButton user ={user} setUser ={setUser} allServices ={allServices} setAllServices ={setAllServices}/>
         </div>
     )
 }
 
 export default UserHome;
+
+//<ServicesMainPage path="/servicespage" services={allServices}/> 
+
+// const servicesButton = ({user, setUser, allServices}) =>{
+//     const history = useHistory();
+//     return(
+//         <button className="servicebutton" onClick = {() => history.push({
+//             pathname: "/servicespage",
+//             state: {user, setUser, allServices, setAllServices}
+//         })}>
+//             Transportation Services!
+//         </button>
+//     )
+// }
