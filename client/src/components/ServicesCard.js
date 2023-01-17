@@ -34,13 +34,13 @@ function ServicesCard() {
         <ul className="services-page">
         {allServices.map((service) => {
             return (
-            <div>
+            <div className="service-list">
                 {service.key}
                 {service.name}
                 <br />
                 {service.travel_type}
                 <br />
-                <button onClick={() => handleFavorite(service.id)}>
+                <button className="favservicebutton" onClick={() => handleFavorite(service.id)}>
                     {service.liked ? 'Unfavorite' : 'Favorite'}
                 </button>
                 <br />
