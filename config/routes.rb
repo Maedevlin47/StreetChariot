@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :favorites
-  resources :services
-  # resources :users, only: [:index, :create, :show, :update]
+  resources :services, only: [:index, :create, :show] 
+  # do 
+  #   resources :favorites, only: [:create]
+  # end
+  resources :favorites, only: [:index, :destroy, :create]
+  resources :users, only: [:index, :create, :show, :update]
 
   #signup routes
   get "/users", to: "users#index"
@@ -17,14 +20,18 @@ Rails.application.routes.draw do
   post "/login", to: "login_session#create"
   
   delete "/logout", to: "login_session#destroy"
+  
+  # post "/favorites", to: "services#post"
 
-  #Services routes
-
-  get "/services", to: "services#index"
-
-  get "/services/:id", to: "services#show"
   
   
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
 end
+
+
+  #Services routes
+
+  # get "/services", to: "services#index"
+
+  # get "/services/:id", to: "services#show"

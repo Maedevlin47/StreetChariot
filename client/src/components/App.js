@@ -6,6 +6,9 @@ import Login from './Login';
 import UserHome from './UserHome';
 import NavBar from './NavBar';
 import LogOut from './LogOut';
+import ServicesPage from './ServicesPage';
+import FavoritesPage from "./FavoritesPage";
+
 // import { BrowserRouter as Router } from 'react-router-dom'
 // import ServicesButton from './ServicesButton';
 
@@ -37,6 +40,10 @@ function App() {
         <Route exact path="/login" element={<Login  user= {user} setUser= {setUser} />}/>
         <Route exact path="/userhome" element={<UserHome user={user} setUser ={setUser}/>}/>
         <Route exact path="/logout" element={<LogOut user= {user} setUser= {setUser} />}/>
+        <Route exact path="/servicespage" element={<ServicesPage user= {user} setUser= {setUser} />}/>
+        {/* <Route exact path="/favoritespage" element={<FavoritesPage user= {user} setUser= {setUser} />}/> */}
+        <Route exact path="/favoritespage" element={<FavoritesPage user= {user} setUser= {setUser} />}/>
+
       </Routes>
 
 

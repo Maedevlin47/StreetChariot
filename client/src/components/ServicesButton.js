@@ -6,12 +6,13 @@ function ServicesButton (){
 
         
         return (
-            <NavLink to='/servicespage'>
-                <button>
-                View Transportation Services!
-                </button>
-            </NavLink>    
-        
+            <div className="services-button">
+                <NavLink to='/servicespage'>
+                    <button>
+                    View Transportation Services!
+                    </button>
+                </NavLink>    
+            </div>
         );
 
 }

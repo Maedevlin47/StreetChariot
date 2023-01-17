@@ -6,12 +6,13 @@ function FavoritesButton (){
 
         
         return (
-            <NavLink to='/favoritespage'>
-                <button>
-                Your Favorites!
-                </button>
-            </NavLink>    
-        
+            <div className="favorites-button">
+                <NavLink to='/favoritespage'>
+                    <button>
+                    Your Favorites!
+                    </button>
+                </NavLink>    
+            </div>
         );
 
 }

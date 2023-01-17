@@ -1,21 +1,12 @@
-import {useEffect, useState} from "react";
+// import {useEffect, useState} from "react";
 import ServicesPage from './ServicesPage';
 // import {Route, Routes} from 'react-router-dom';
 import ServicesButton from "./ServicesButton";
-// import ServicesButton from "./ServicesButton;
 import FavoritesPage from "./FavoritesPage";
 import FavoritesButton from "./FavoritesButton";
-
 function UserHome ({user, setUser}) {
     
-    const [allServices, setAllServices] = useState([])
-    
-    useEffect(() => {
-        fetch("/services")
-        .then(r => r.json())
-        .then(setAllServices)
-    }, [])
-    
+
     
     
     return (  
@@ -25,11 +16,11 @@ function UserHome ({user, setUser}) {
             <h2 className="tranportlist"> </h2>
             <h2 className="favorites"> </h2>
 
-            <ServicesPage user ={user} setUser ={setUser} allServices ={allServices} setAllServices ={setAllServices}/>
-            <ServicesButton user ={user} setUser ={setUser} allServices ={allServices} setAllServices ={setAllServices}/>
-            <FavoritesPage user ={user} setUser ={setUser} allServices ={allServices} setAllServices ={setAllServices}/>
+            <ServicesPage user ={user} setUser ={setUser} />
+            <ServicesButton user ={user} setUser ={setUser} />
+            <FavoritesPage user ={user} setUser ={setUser} />
             <br />
-            <FavoritesButton user ={user} setUser ={setUser} allServices ={allServices} setAllServices ={setAllServices}/>
+            <FavoritesButton user ={user} setUser ={setUser} />
         </div>
     )
 }

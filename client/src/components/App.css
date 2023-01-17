@@ -21,18 +21,36 @@
 
 .Login {
   border: 3px solid rgb(156, 154, 151) ;
-
 }
 
+.Logout {
+  border: 3px solid rgb(156, 154, 151) ;
 
+}
 .userhome {
   border: 3px solid rgb(156, 154, 151) ;
 
 }
 
+.serivices-button {
+  border: 3px solid rgb(156, 154, 151) ;
 
+}
 
+.serivices-page {
+  border: 3px solid rgb(156, 154, 151) ;
 
+}
+
+.favorites-page {
+  border: 3px solid rgb(156, 154, 151) ;
+
+}
+
+.favorites-button {
+  border: 3px solid rgb(156, 154, 151) ;
+
+}
 
 
 
