@@ -1,53 +1,26 @@
-import { useState, useEffect } from 'react';
+import React from "react";
 
-function FavoritesPage() {
-        const [favorites, setFavorites] = useState([]);
-    
-        useEffect(() => {
-            fetch("/favorites")
-            .then(r => r.json())
-            .then(setFavorites)
-        }, []);
-    
+function FavoritesPage({services}) {
+        
+    const favoriteServices = services.filter((service) => service.favorite === true);
+        
+    return (
+        <div>
+            {favoriteServices.map((service) => (
+            <div key={service.id}>
+                <p>{service.name}</p>
+            </div>
+        ))}
+        </div>
+    );
+}
 
-        function handleUnfavorite(favoriteId) {
-            fetch(`/favorites/${favoriteId}`, {
-                method: 'DELETE',
-            })
-                .then((response) => {
-                    if (response.ok) {
-                        setFavorites(favorites.filter(f => f.id !== favoriteId));
-                    } else {
-                        console.error('Error:', response);
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-        }
-        return(
-            <ul className="favorites-page">
-                {favorites.map((favorite) => {
-                    return (
-                        <div>
-                            {favorite.service.key}
-                            {favorite.service.name}
-                            <br />
-                            {favorite.service.travel_type}
-                            <button onClick={() => handleUnfavorite(favorite.id)}>
-                                Unfavorite
-                            </button>
-                            <br />
-                            <br />
-                            <br />
-                        </div>
-                    );
-                })}
-            </ul>
-        );
-    }    
 
 export default FavoritesPage;
+
+
+
+
 
 // function handleUnfavorite(serviceId) {
 //     fetch(`/favorites/${serviceId}`, {
@@ -91,3 +64,53 @@ export default FavoritesPage;
                 //     </div>
                 //     );
                 // }
+
+
+
+
+            //     const [favorites, setFavorites] = useState([]);
+    
+            //     useEffect(() => {
+            //         fetch("/favorites")
+            //         .then(r => r.json())
+            //         .then(setFavorites)
+            //     }, []);
+            
+        
+            //     function handleUnfavorite(favoriteId) {
+            //         fetch(`/favorites/${favoriteId}`, {
+            //             method: 'DELETE',
+            //         })
+            //             .then((response) => {
+            //                 if (response.ok) {
+            //                     setFavorites(favorites.filter(f => f.id !== favoriteId));
+            //                 } else {
+            //                     console.error('Error:', response);
+            //                 }
+            //             })
+            //             .catch((error) => {
+            //                 console.error('Error:', error);
+            //             });
+            //     }
+            //     return(
+            //         <ul className="favorites-page">
+            //             {favorites.map((favorite) => {
+            //                 return (
+            //                     <div>
+            //                         {favorite.service.key}
+            //                         {favorite.service.name}
+            //                         <br />
+            //                         {favorite.service.travel_type}
+            //                         <button onClick={() => handleUnfavorite(favorite.id)}>
+            //                             Unfavorite
+            //                         </button>
+            //                         <br />
+            //                         <br />
+            //                         <br />
+            //                     </div>
+            //                 );
+            //             })}
+            //         </ul>
+            //     );
+            // }    
+        

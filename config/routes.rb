@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :services, only: [:index, :create, :show] 
+  resources :services, only: [:index, :create, :show, :update] 
   # do 
   #   resources :favorites, only: [:create]
   # end
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   
   # post "/favorites", to: "services#post"
 
-  
+
   
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 

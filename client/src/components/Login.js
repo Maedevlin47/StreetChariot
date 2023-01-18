@@ -24,7 +24,7 @@ function Login({ user, setUser }) {
             if (r.ok) {
                 r.json().then((user) => {
                     setUser(user)
-                    navigate('/home')
+                    navigate('/userhome')
                 })
             } else {
                 r.json().then(json => {

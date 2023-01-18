@@ -1,47 +1,51 @@
 import React from "react";
 import {useEffect, useState} from "react";
+import FavoritesPage from "./FavoritesPage";
+
 
 function ServicesCard() {
     
-    const [allServices, setAllServices] = useState([])
-    
+    const [allServices, setAllServices] = useState([]);
+
     useEffect(() => {
         fetch("/services")
-        .then(r => r.json())
-        .then(setAllServices)
-    }, [])
-    
-    console.log(allServices)
-    
-    function handleFavorite(serviceId) {
-        fetch('/favorites', {
-            method: 'POST',
-            body: JSON.stringify({ service_id: serviceId }),
-            headers: { 'Content-Type': 'application/json' },
-        })
-    
-            .then((response) => {
-            console.log(response);
+        .then((r) => r.json())
+        .then(setAllServices);
+    }, []);
 
-        })
-            .catch((error) => {
-                console.error('Error:', error);
+    const handleFavoriteClick = (serviceId) => {
+    fetch(`/services/${serviceId}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ favorite: true }),
+        headers: { 'Content-Type': 'application/json' },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            const updatedServices = allServices.map((service) => {
+                if (service.id === serviceId) {
+                return { ...service, favorite: true };
+                }
+                return service;
         });
-    }
+        setAllServices(updatedServices);
+        })
+
+        .catch((error) => console.error(error));
+    };
 
     
     return(
         <ul className="services-page">
         {allServices.map((service) => {
             return (
-            <div className="service-list">
+            <div key={service.id}>
                 {service.key}
                 {service.name}
                 <br />
                 {service.travel_type}
                 <br />
-                <button className="favservicebutton" onClick={() => handleFavorite(service.id)}>
-                    {service.liked ? 'Unfavorite' : 'Favorite'}
+                <button onClick={() => handleFavoriteClick(service.id)}>
+                    Favorite
                 </button>
                 <br />
                 <br />
@@ -49,11 +53,77 @@ function ServicesCard() {
             </div>
                 );
             })}
+            <div>
+                <FavoritesPage services={allServices} />
+            </div>
         </ul>
+        
         );
-}
+    }
 
 export default ServicesCard;
+
+
+
+
+// function ServicesCard() {
+    
+//     const [allServices, setAllServices] = useState([])
+    
+//     useEffect(() => {
+//         fetch("/services")
+//         .then(r => r.json())
+//         .then(setAllServices)
+//     }, [])
+    
+//     console.log(allServices)
+    
+//     function handleFavorite(serviceId) {
+//         fetch('/favorites', {
+//             method: 'POST',
+//             body: JSON.stringify({ service_id: serviceId }),
+//             headers: { 'Content-Type': 'application/json' },
+//         })
+    
+//             .then((response) => {
+//             console.log(response);
+
+//         })
+//             .catch((error) => {
+//                 console.error('Error:', error);
+//         });
+//     }
+
+    
+//     return(
+//         <ul className="services-page">
+//         {allServices.map((service) => {
+//             return (
+//             <div>
+//                 {service.key}
+//                 {service.name}
+//                 <br />
+//                 {service.travel_type}
+//                 <br />
+//                 <button className="favservicebutton" onClick={() => handleFavorite(service.id)}>
+//                     {service.liked ? 'Unfavorite' : 'Favorite'}
+//                 </button>
+//                 <br />
+//                 <br />
+//                 <br />
+//             </div>
+//                 );
+//             })}
+//         </ul>
+//         );
+// }
+
+
+
+
+
+
+
 
 
 

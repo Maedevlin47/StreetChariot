@@ -14,7 +14,22 @@ class ServicesController < ApplicationController
                 render json: {"error": "No service found"}, status: :not_found
             end
         end
-    end
+
+        def update
+            @service = Service.find(params[:id])
+            if @service.update(favorite_params)
+                render json: @service
+            else
+                render json: { errors: @service.errors }, status: :unprocessable_entity
+            end
+        end
+    private #################################################################################################
+        def favorite_params
+            params.permit(:favorite)
+        end
+
+
+end
     
 
 

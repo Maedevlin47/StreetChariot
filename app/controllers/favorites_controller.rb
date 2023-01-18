@@ -1,37 +1,44 @@
 class FavoritesController < ApplicationController
     
-        def create
-            service = Service.find(params[:service_id])
-            current_user.favorites << service
-            if current_user.save
-                render json: { message: "Service added to favorites" }, status: :created
-            else
-                render json: { error: current_user.errors.full_messages }, status: :unprocessable_entity
-            end
-        end
-        
-        def destroy
-            favorite = Favorite.find(params[:id])
-            if favorite.user == current_user
-                favorite.destroy
-                render json: { message: "Service removed from favorites" }, status: :ok
-            else
-                render json: { error: "Unauthorized" }, status: :unauthorized
-            end
-        end
-
-        def index
-            self.favorites = current_user.favorites
-        end
-
+    def index
+        self.favorite_services = current_user.services.where(favorite: true)
     end
+
+    def create
+        self.service = Service.find(params[:id])
+        current_user.services << @service
+        redirect_to services_path
+    end
+
+end
     
     
     
     
+        # def index
+    #     @services = Service.where(favorite: true)
+    #     render json: @services
+    # end
     
-    
-    
+            # def create
+        #     service = Service.find(params[:service_id])
+        #     current_user.favorites << service
+        #     if current_user.save
+        #         render json: { message: "Service added to favorites" }, status: :created
+        #     else
+        #         render json: { error: current_user.errors.full_messages }, status: :unprocessable_entity
+        #     end
+        # end
+        
+        # def destroy
+        #     favorite = Favorite.find(params[:id])
+        #     if favorite.user == current_user
+        #         favorite.destroy
+        #         render json: { message: "Service removed from favorites" }, status: :ok
+        #     else
+        #         render json: { error: "Unauthorized" }, status: :unauthorized
+        #     end
+        # end
     
     
     

@@ -4,6 +4,7 @@ import ServicesPage from './ServicesPage';
 import ServicesButton from "./ServicesButton";
 import FavoritesPage from "./FavoritesPage";
 import FavoritesButton from "./FavoritesButton";
+
 function UserHome ({user, setUser}) {
     
 
