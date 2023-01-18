@@ -3,65 +3,119 @@ import {useEffect, useState} from "react";
 import FavoritesPage from "./FavoritesPage";
 
 
-function ServicesCard() {
+function ServicesCard({service}) {
+
+    const [favorites, setFavorites] = useState([])
     
-    const [allServices, setAllServices] = useState([]);
+    const [serviceFavitorites, setServiceFavitorites] = useState
 
-    useEffect(() => {
-        fetch("/services")
-        .then((r) => r.json())
-        .then(setAllServices);
-    }, []);
+    function handleAddFavorite() {
+        fetch('/favorites/add', {
+            method: 'POST',
+            headers: {"Content-Type": "application/json" },
+            body: JSON.stringify({ service_id: service.id }),
 
-    const handleFavoriteClick = (serviceId) => {
-    fetch(`/services/${serviceId}`, {
-        method: 'PATCH',
-        body: JSON.stringify({ favorite: true }),
-        headers: { 'Content-Type': 'application/json' },
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            const updatedServices = allServices.map((service) => {
-                if (service.id === serviceId) {
-                return { ...service, favorite: true };
-                }
-                return service;
-        });
-        setAllServices(updatedServices);
-        })
-
-        .catch((error) => console.error(error));
-    };
+            }).then((response) => {
+    
+                if (response.ok) {
+    
+                response.json().then((data) => setFavorites([data, ...favorites]));
+    
+            }
+    
+            });
+        }
+        function updateFavorites() {
+            fetch(`service/${service.id}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ favorites: ++service.favorites }),
+            })
+                .then((r) => r.json())
+                .then((data) => {
+                    setServiceFavitorites({ ...data });
+                });
+        }
 
     
     return(
-        <ul className="services-page">
-        {allServices.map((service) => {
-            return (
-            <div key={service.id}>
+        <div className="services-page">
+            <div>
                 {service.key}
                 {service.name}
-                <br />
+                <a className="website" href={service.website} target= "_blank" > Click Here to their website!</a>
+            <br />
                 {service.travel_type}
-                <br />
-                <button onClick={() => handleFavoriteClick(service.id)}>
-                    Favorite
-                </button>
-                <br />
-                <br />
-                <br />
             </div>
-                );
-            })}
-            <div>
-                <FavoritesPage services={allServices} />
-            </div>
-        </ul>
+            <br />
+            <button classname= "add-favoriteon" Click={() => {handleAddFavorite(service.id); updateFavorites(service.favorites)}}>
+                    Favorite!
+            </button>
+            <br />
+            <br />
+            <br />
+            
+        </div>
         
         );
     }
 
 export default ServicesCard;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const handleFavoriteClick = (serviceId) => {
+//     fetch(`/services/${serviceId}`, {
+//         method: 'PATCH',
+//         body: JSON.stringify({ favorite: true }),
+//         headers: { 'Content-Type': 'application/json' },
+//     })
+//         .then((response) => response.json())
+//         .then((data) => {
+//             const updatedServices = allServices.map((service) => {
+//                 if (service.id === serviceId) {
+//                 return { ...service, favorite: true };
+//                 }
+//                 return service;
+//         });
+//         setAllServices(updatedServices);
+//         })
+
+//         .catch((error) => console.error(error));
+//     };
+
+
+
+
+
+
+
+
+
+
+
+    // const [allServices, setAllServices] = useState([]);
+
+    // useEffect(() => {
+    //     fetch("/services")
+    //     .then((r) => r.json())
+    //     .then(setAllServices);
+    // }, []);
+
+
 
 
 

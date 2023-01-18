@@ -1,9 +1,11 @@
 import React from "react";
 
 function FavoritesPage({services}) {
-        
+    
+    if(!services) return null;
+
     const favoriteServices = services.filter((service) => service.favorite === true);
-        
+
     return (
         <div>
             {favoriteServices.map((service) => (

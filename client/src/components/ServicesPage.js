@@ -3,17 +3,21 @@ import React from "react";
 import ServicesCard from "./ServicesCard";
 
 
-function ServicesPage({user}) {
+function ServicesPage({user, allServices}) {
     
 
 
 
 
     
-    return (  
+    return ( 
+
         <div className="services-page">
-            <ServicesCard />
-
+    
+            {
+            allServices.map(service => <ServicesCard key={service.id} service={service}/>)
+            }
+            
         </div>
     );
 }

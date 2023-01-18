@@ -1,3 +1,6 @@
+import React from "react";
+
+
 class FavoritesController < ApplicationController
     
     def index
@@ -5,15 +8,25 @@ class FavoritesController < ApplicationController
     end
 
     def create
-        self.service = Service.find(params[:id])
-        current_user.services << @service
-        redirect_to services_path
+        favorite = Favorite.new(favorite_params)
+        favorite.user = @current_user
+        favorite.save 
+        render json: favorite.restaurant, status: :created     
     end
-
+    
+    private################################################################
+    
+    def favorite_params
+        params.permit(:restaurant_id)
+    end
 end
     
     
-    
+        # def create
+    #     self.service = Service.find(params[:id])
+    #     current_user.services << @service
+    #     redirect_to services_path
+    # end
     
         # def index
     #     @services = Service.where(favorite: true)

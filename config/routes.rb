@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   
   # post "/favorites", to: "services#post"
 
+  post  '/favorites/add', to: 'favorites#create'
+
 
   
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

@@ -14,8 +14,9 @@ function Navbar ({user}) {
                 <br />
                 <NavLink className="userhome" to="/userhome">Home</NavLink>
                 <br />
+                <NavLink className="servicespage" to="/servicespage">Transport Services</NavLink>
+                <br />
                 <NavLink className="favorites/page" to="/favoritespage">favorites</NavLink>
-
                 </div>
                 ) : (
                 <div className="loggedout">
