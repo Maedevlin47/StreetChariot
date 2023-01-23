@@ -1,19 +1,19 @@
-import {useState} from "react"
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 
 function SignUp ({user, setUser}) {
-    console.log("SignUp")
     
     // form data
-    const [name, setName] = useState ("")
-    const [userName, setUserName] = useState ("")
-    const [birthdate, setBirthdate] = useState ("")
-    const [city, setCity] = useState ("")
-    const [state, setState] = useState ("")
+    const [name, setName] = useState ("");
+    const [userName, setUserName] = useState ("");
+    const [birthdate, setBirthdate] = useState ("");
+    const [city, setCity] = useState ("");
+    const [state, setState] = useState ("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
-    let navigate = useNavigate()
+    
+    // let navigate = useNavigate()
 
 
     function handleSubmit(e) {
@@ -35,11 +35,9 @@ function SignUp ({user, setUser}) {
         })
         .then((r) => {
             if (r.ok) {
-            r.json().then((user) => {
-                setUser(user)
-                navigate('/userhome')
+            r.json()
+            .then((user) => setUser(user));
             }
-        )}
         });
         setTimeout(() =>{
             setName("")
@@ -51,11 +49,12 @@ function SignUp ({user, setUser}) {
             setPasswordConfirmation("")
             }, 1000)
         }
-        // console.log(signupData)
         console.log(user)
-        
-        
 
+        
+        // console.log(signupData)
+        // navigate('/userhome')
+        
     return (
         <div className="signup">
             <form onSubmit={handleSubmit}>

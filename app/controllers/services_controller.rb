@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-    # skip_before_action :authorize_login, only: [:index]
+    skip_before_action :authorize, only: [:index, :show]
     
         def index
             services = Service.all
@@ -17,8 +17,7 @@ class ServicesController < ApplicationController
 
         def update 
             service = Service.find_by_id(params[:id])
-            if service
-                service.update(favorite)
+            if service.update(favorites: params[:favorites])                
                 render json: service
             else
                 render json: {error: 'Service not found'}, status: :not_found

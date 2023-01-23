@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   # do 
   #   resources :favorites, only: [:create]
   # end
-  resources :favorites, only: [:index, :destroy, :create]
-  resources :users, only: [:index, :create, :show, :update]
+  resources :favorites, only: [:index, :destroy, :create, :update]
+  # resources :users, only: [:index, :create, :show, :update]
 
   #signup routes
   get "/users", to: "users#index"

@@ -7,7 +7,7 @@ function ServicesCard({service}) {
 
     const [favorites, setFavorites] = useState([])
     
-    const [serviceFavitorites, setServiceFavitorites] = useState
+    const [serviceFavitorites, setServiceFavitorites] = useState(false)
 
     function handleAddFavorite() {
         fetch('/favorites/add', {
@@ -25,18 +25,30 @@ function ServicesCard({service}) {
     
             });
         }
-        function updateFavorites() {
-            fetch(`service/${service.id}`, {
-                method: "PATCH",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ favorites: ++service.favorites }),
-            })
-                .then((r) => r.json())
-                .then((data) => {
-                    setServiceFavitorites({ ...data });
-                });
-        }
-
+        // function updateFavorites() {
+        //     fetch(`service/${service.id}/favorite`, {
+        //         method: "PATCH",
+        //         headers: { "Content-Type": "application/json" },
+        //         body: JSON.stringify({ favorites: --service.favorites }),
+        //     })
+        //     .then((response) => {
+        //         if (response.ok) {
+        //         setServiceFavitorites(false);
+        //         }
+        //     });
+        //         } else 
+        //         if (fetch(`/service/${service.id}/favorite`), {
+        //                 method: "PATCH",
+        //                 headers: { "Content-Type": "application/json" },
+        //                 body: JSON.stringify({ favorites: ++service.favorites }),
+        //             })
+        //             .then((response) => {
+        //                 (response.ok) {
+        //                 setServiceFavitorites(true);
+        //                 }
+        //             });
+        //         }
+    
     
     return(
         <div className="services-page">
@@ -48,12 +60,13 @@ function ServicesCard({service}) {
                 {service.travel_type}
             </div>
             <br />
-            <button classname= "add-favoriteon" Click={() => {handleAddFavorite(service.id); updateFavorites(service.favorites)}}>
+            {/* <button classname= "add-favoriteon" onClick={() => {handleAddFavorite(service.id); updateFavorites(service.favorites)}}>
                     Favorite!
-            </button>
+            </button> */}
             <br />
             <br />
-            <br />
+
+
             
         </div>
         
@@ -64,7 +77,15 @@ export default ServicesCard;
 
 
 
-
+/* <button */
+// className="add-favoriteon"
+// onClick={() => {
+// handleAddFavorite();
+// setIsFavorited(!isFavorited);
+// }}>
+// {isFavorited ? "Unfavorite" : "Favorite"}
+// </button>
+// <br />
 
 
 

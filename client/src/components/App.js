@@ -21,9 +21,12 @@ function App() {
 
     useEffect(() =>{
       fetch("/user_logged_in")
-      .then (r => r.json())
-      .then((user) => setUser(user))
-      },[])
+      .then (r => { 
+        if (r.ok) {
+          r.json().then((user) => setUser(user))
+        }
+      } )
+    },[])
   
   console.log(user)
 

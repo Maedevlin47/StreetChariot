@@ -1,27 +1,43 @@
-import React from "react";
-
-
 class FavoritesController < ApplicationController
+    before_action :authorize, only: [:create, :destroy]
+
     
     def index
-        self.favorite_services = current_user.services.where(favorite: true)
+        self.favorites = current_user.favorites
     end
 
     def create
         favorite = Favorite.new(favorite_params)
         favorite.user = @current_user
         favorite.save 
-        render json: favorite.restaurant, status: :created     
+        render json: favorite.service, status: :created     
     end
+
+
     
-    private################################################################
+    private ################################################################
     
     def favorite_params
-        params.permit(:restaurant_id)
+        params.permit(:service_id, :user_id)
     end
 end
     
-    
+
+
+
+    # def create
+    #    service = Service.find(params[:service_id])
+    #    favorite = current_user.favorites.new(service: service)
+    # if favorite.save
+    #    render json: favorite
+    # else
+    #     render json: { errors: favorite.errors.full_messages }, status: :unprocessable_entity
+    #   end
+    # end
+
+
+
+
         # def create
     #     self.service = Service.find(params[:id])
     #     current_user.services << @service

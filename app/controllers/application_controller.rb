@@ -1,18 +1,21 @@
 class ApplicationController < ActionController::API
     include ActionController::Cookies
-    rescue_from ActiveRecord::RecordInvalid, with: :authorize_login
-    before_action :authorize_login
-    rescue_from ActiveRecord::RecordInvalid, with: :authorize_login
-    rescue_from ActiveRecord::RecordInvalid, with: :invalid_error
+    before_action :authorize
+    # rescue_from ActiveRecord::RecordInvalid, with: :authorize
+
+private #########################################################################
     
-    private #########################################################################
-    def authorize_login 
-        render json: {error: "Not authorized username or password"}, status: :unauthorized unless session.include? :user_id
+    def authorize
+        @current_user = User.find_by(id: session[:user_id])
+
+        render json: { errors: ["Not authorized"] }, status: :unauthorized unless @current_user
     end
-
-    def invalid_error error
-        render json: {"errors": error.record.errors.full_messages}, status: :unprocessable_entity
-    end
-
-
 end
+
+
+
+
+
+    # before_action :authorize_login
+    # rescue_from ActiveRecord::RecordInvalid, with: :authorize_login
+    # rescue_from ActiveRecord::RecordInvalid, with: :invalid_error
