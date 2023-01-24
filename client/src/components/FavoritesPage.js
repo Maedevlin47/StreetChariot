@@ -4,14 +4,14 @@
 import React from "react";
 // import { useParams } from "react-router-dom";
 
-
 const headers = {
     Accept: "application/json",
         "Content-Type" : "application/json"}
 
-function FavoritesPage({ user, service, servicesList, setFavorites = [], favorites =[], handleRemoveFavorite }) {
+
+function FavoritesPage({ user, service, servicesList, favorites = [], handleRemoveFavorite }) {
     
-    function handleDeleteFavorite(user, service) {
+    function handleDelete(user, service) {
         handleRemoveFavorite(service.id);
 
         fetch("/favorites", {
@@ -29,15 +29,15 @@ function FavoritesPage({ user, service, servicesList, setFavorites = [], favorit
         <div className="favoritespage">
             {favorites.map((service) => {
             return (
-                <div className="favoriteslist" key={service.id}>
+                <div className="favoriteslist" key={favorites.id}>
                     <p>{service.name}</p>
                     <a href= {service.website}>{service.name} Website </a>
                     <p>{service.travel_type}</p>
                 <br />
                 <button 
                     className="deletefav"
-                    onClick={() => handleDeleteFavorite(user, service)}>
-                        Remove From Favorites!
+                    onClick={() => handleDelete(user, service)} >
+                        {handleDelete ? "Remove From Favorites" : "Removed From Favorites"} 
                 </button>
                 </div>
             );
@@ -46,7 +46,6 @@ function FavoritesPage({ user, service, servicesList, setFavorites = [], favorit
     
     );
 }
-
 
 export default FavoritesPage;
 

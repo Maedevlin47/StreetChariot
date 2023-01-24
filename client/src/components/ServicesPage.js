@@ -2,13 +2,15 @@ import React from "react";
 import FavoritesPage from "./FavoritesPage";
 // import { Link } from "react-router-dom";
 // import ServicesCard from "./ServicesCard";
-// import {React, useEffect, useState} from "react";
+// import { useState} from "react";
 
 
-function ServicesPage({user, setUser, services, favorites, setFavorites}) {
+function ServicesPage({user, setUser, services, favorites , setFavorites}) {
     console.log(services)
 
-    
+    // const [favorites, setFavorites] = useState(user ? user.services : []);
+
+
     function handleClick (service) {
         console.log(service)
         fetch ("/favorites", {
@@ -32,36 +34,44 @@ function ServicesPage({user, setUser, services, favorites, setFavorites}) {
         })
     }
     
-    
-    const serviceList = services.map((service) => {
-        return (
-            <div key={service.id}>
-                <p>{service.name}</p>
-                <p>{service.travel_type}</p>
-                <a href= {service.website}>{service.name} Website </a>
-                <br />
-                <button onClick = {() => {handleClick(service)} }>Add to favorites</button>
-            <div>
-                {/* <FavoritesPage service={service} user={user} favorites={favorites} setFavorites = {setFavorites} /> */}
-            </div>
-            </div>
+    // function handleDeleteFavorite(id) {
+    //         const updateFavoriteArray = favorites.filter(
+    //             (favorite) => favorite.id !== id
+    //             );
+    //         setFavorites(updateFavoriteArray);
+    //     }
 
-        )
-    })
+    
+        const serviceList = services.map((service) => {
+                return (
+                    <div key={service.id}>
+                        <p>{service.name}</p>
+                        <p>{service.travel_type}</p>
+                        <a href= {service.website}>{service.name} Website </a>
+                        <br />
+                    <div>
+                        <button onClick = {() => {handleClick(service)} }>Add to favorites</button>
+                    </div>
+                    </div>
+
+                )
+            })
     return ( 
 
         <div className="services-page">
             <h1>
             {serviceList}
             </h1>
-            <FavoritesPage serviceList = {serviceList} favorites = {favorites}/>
+            <FavoritesPage 
+            serviceList = {serviceList} 
+            />
         </div>
     )
 }
 
 export default ServicesPage;
 
-
+// handleDeleteFavorite = {handleDeleteFavorite}
 
 /* <ServicesCard serviceList = {serviceList} ></ServicesCard> */
 

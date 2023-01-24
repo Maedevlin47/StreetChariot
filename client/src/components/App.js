@@ -32,7 +32,7 @@ function App() {
   console.log(user)
   
   const [services, setServices] = useState([]);
-
+  
     
   useEffect(() => {
       fetch("/services")
@@ -43,13 +43,15 @@ function App() {
       })
   }, []);
 
+
+  
 // to delete a favorite in favorites page
-  // function handleRemoveFavorite(id) {
-  //   const updateFavoriteArray = services.filter(
-  //     (service) => service.id !== id
-  //   );
-  //   setFavorites(updateFavoriteArray);
-  // }
+  function handleRemoveFavorite(id) {
+    const updateFavoriteArray = services.filter(
+      (service) => service.id !== id
+    );
+    setServices(updateFavoriteArray);
+  }
 
 
   return (
@@ -88,7 +90,8 @@ function App() {
               setUser= {setUser} 
               services ={services}
               favorites = {user ? user.services : []}
-              // handleDeleteFavorite = {handleDeleteFavorite}
+              // setFavorites = {setFavorites}
+              handleRemoveFavorite = {handleRemoveFavorite}
               />}/>
         <Route exact path="/servicescard" element={
             <ServicesCard 

@@ -15,6 +15,7 @@ class FavoritesController < ApplicationController
     def create
         favorite = Favorite.new(favorite_params)
         favorite.save
+        
         if favorite.valid?
             render json: favorite.service, status: :created 
         else
@@ -23,16 +24,16 @@ class FavoritesController < ApplicationController
             
     end
 
-    # def destroy
+    def destroy
         
-    #     favorite = Favorite.where(restaurant_id: params[:restaurant][:id], user_id: params[:user][:id]).first
-    #         if favorite
-    #             favorite.destroy
-    #             head :no_content
-    #         else 
-    #             render json: {error: 'Favorite not found'}, status: :not_found
-    #         end
-    # end 
+        favorite = Favorite.where(service_id: params[:service][:id], user_id: params[:user][:id]).first
+            if favorite
+                favorite.destroy
+                head :no_content
+            else 
+                render json: {error: 'Favorite not found'}, status: :not_found
+            end
+    end 
     
     private ################################################################
     
