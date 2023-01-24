@@ -1,9 +1,15 @@
 class FavoritesController < ApplicationController
-    before_action :authorize, only: [:create, :destroy]
+    before_action :authorize, only: [:index]
 
     
     def index
-        self.favorites = current_user.favorites
+        favorites = Favorite.all 
+        render json: favorites
+    end
+
+    def show
+        favorite = Favorite.find_by(params[:id])
+        render json: favorite
     end
 
     def create
@@ -13,7 +19,16 @@ class FavoritesController < ApplicationController
         render json: favorite.service, status: :created     
     end
 
-
+    # def destroy
+        
+    #     favorite = Favorite.where(restaurant_id: params[:restaurant][:id], user_id: params[:user][:id]).first
+    #         if favorite
+    #             favorite.destroy
+    #             head :no_content
+    #         else 
+    #             render json: {error: 'Favorite not found'}, status: :not_found
+    #         end
+    # end 
     
     private ################################################################
     

@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   post  '/favorites/add', to: 'favorites#create'
 
+  delete "/favorites", to: 'favorites#destroy'
+  
 
   
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

@@ -6,6 +6,7 @@ class ServicesController < ApplicationController
             render json: services
         end
     
+
         def show
             service = Service.find_by_id(params[:id])
             if service
@@ -27,7 +28,6 @@ class ServicesController < ApplicationController
 
     private #################################################################################################
 
-    private
     def service_params
         params.permit(:name, :travel_type, :favorite, :website)
     end

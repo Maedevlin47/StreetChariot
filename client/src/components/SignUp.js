@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 function SignUp ({user, setUser}) {
     
@@ -12,8 +12,7 @@ function SignUp ({user, setUser}) {
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
-    
-    // let navigate = useNavigate()
+    const loginRoute = useNavigate();
 
 
     function handleSubmit(e) {
@@ -35,9 +34,14 @@ function SignUp ({user, setUser}) {
         })
         .then((r) => {
             if (r.ok) {
-            r.json()
-            .then((user) => setUser(user));
+                r.json().then((user) => {
+                    setUser(user)
+                    loginRoute("/userhome")
+                } )
+            } else {
+                r.json().then(console.warn);
             }
+        
         });
         setTimeout(() =>{
             setName("")
@@ -126,7 +130,9 @@ function SignUp ({user, setUser}) {
                     autoComplete="current-password"
                 />
                 <br/>
+
                 <button type="submit">Sign Up</button>
+
         </form>
         
         

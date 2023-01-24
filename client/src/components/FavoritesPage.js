@@ -1,19 +1,49 @@
+// import React, { useEffect } from "react";
+// import {useState} from "react";
+// import { id } from "date-fns/locale";
 import React from "react";
+// import { useParams } from "react-router-dom";
 
-function FavoritesPage({services}) {
+
+const headers = {
+    Accept: "application/json",
+        "Content-Type" : "application/json"}
+
+function FavoritesPage({ user, service, servicesList, setFavorites = [], favorites =[], handleRemoveFavorite }) {
     
-    if(!services) return null;
+    function handleDeleteFavorite(user, service) {
+        handleRemoveFavorite(service.id);
 
-    const favoriteServices = services.filter((service) => service.favorite === true);
+        fetch("/favorites", {
+            method: "DELETE",
+            headers,
+            body: JSON.stringify({
+                user: user,
+                service: service,
+            }),
+        });
+    }
+
 
     return (
-        <div>
-            {favoriteServices.map((service) => (
-            <div key={service.id}>
-                <p>{service.name}</p>
-            </div>
-        ))}
+        <div className="favoritespage">
+            {favorites.map((service) => {
+            return (
+                <div className="favoriteslist" key={service.id}>
+                    <p>{service.name}</p>
+                    <a href= {service.website}>{service.name} Website </a>
+                    <p>{service.travel_type}</p>
+                <br />
+                <button 
+                    className="deletefav"
+                    onClick={() => handleDeleteFavorite(user, service)}>
+                        Remove From Favorites!
+                </button>
+                </div>
+            );
+        })}
         </div>
+    
     );
 }
 
@@ -21,7 +51,20 @@ function FavoritesPage({services}) {
 export default FavoritesPage;
 
 
+    // const [user, setUser] = useState({ favorites: [], services: [] });
+    // const [favorited, setFavorited] = useState (false)
+    // const favoriteSers = 
 
+    // };
+    
+    
+    
+    // function FavoritesPage({user, servicesList, setFavorites, favorites =[], handleDeleteFavorite}) {
+
+    
+    // if(!services) return null;
+
+    // const favoriteServices = services.filter((service) => service.favorite === true);
 
 
 // function handleUnfavorite(serviceId) {
@@ -116,3 +159,28 @@ export default FavoritesPage;
             //     );
             // }    
         
+
+             // const headers = {
+    // Accepts: "application/json",
+    // "Content-Type": "application/json",
+        // };
+    // 
+    // function handleDeleteFavorite(id) {
+    //     const updateFavoriteArray = favorites.filter(
+    //     (favorite) => favorite.id !== id
+    //     );
+    //     setFavorites(updateFavoriteArray);
+    
+        
+    //     fetch(`/favorites/`, {
+    //         method: "DELETE",
+    //         // headers:{"Content-Type": "application/json"},
+    //         body: JSON.stringify({
+    //             user: user,
+    //             service: service,
+    //         }),
+    //     });
+    // }
+        // useEffect(() => {
+        //     setFavorites(getFavorites());
+        // },[]);

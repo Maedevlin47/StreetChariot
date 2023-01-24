@@ -8,6 +8,7 @@ import NavBar from './NavBar';
 import LogOut from './LogOut';
 import ServicesPage from './ServicesPage';
 import FavoritesPage from "./FavoritesPage";
+import ServicesCard from './ServicesPage';
 
 // import { BrowserRouter as Router } from 'react-router-dom'
 // import ServicesButton from './ServicesButton';
@@ -15,8 +16,9 @@ import FavoritesPage from "./FavoritesPage";
 
 
 function App() {
-
+    const [favorites, setFavorites] = useState([])
     const [user, setUser]= useState(null)
+    
     console.log(user)
 
     useEffect(() =>{
@@ -29,8 +31,27 @@ function App() {
     },[])
   
   console.log(user)
+  console.log(favorites)
+  
+  const [services, setServices] = useState([]);
 
+    
+  useEffect(() => {
+      fetch("/services")
+      .then(r => {
+          if(r.ok) {
+              r.json().then ((serviceData) => setServices(serviceData));
+          }
+      })
+  }, []);
 
+// to delete a favorite in favorites page
+  function handleRemoveFavorite(id) {
+    const updateFavoriteArray = favorites.filter(
+      (favorite) => favorite.id !== id
+    );
+    setFavorites(updateFavoriteArray);
+  }
 
 
   return (
@@ -39,13 +60,47 @@ function App() {
       <NavBar user = {user}/>
       </header>
       <Routes>
-        <Route exact path="/signup" element={<SignUp user= {user} setUser= {setUser} />}/>
-        <Route exact path="/login" element={<Login  user= {user} setUser= {setUser} />}/>
-        <Route exact path="/userhome" element={<UserHome user={user} setUser ={setUser}/>}/>
-        <Route exact path="/logout" element={<LogOut user= {user} setUser= {setUser} />}/>
-        <Route exact path="/servicespage" element={<ServicesPage user= {user} setUser= {setUser} />}/>
+        <Route exact path="/signup" element={
+            <SignUp 
+              user= {user} 
+              setUser= {setUser} />}/>
+        <Route exact path="/login" element={
+            <Login  
+              user= {user} 
+              setUser= {setUser} />}/>
+        <Route exact path="/userhome" element={
+            <UserHome 
+            user={user} 
+            setUser ={setUser}/>}/>
+        <Route exact path="/logout" element={
+            <LogOut 
+              user= {user} 
+              setUser= {setUser} />}/>
+        <Route exact path="/servicespage" element={
+            <ServicesPage 
+              user= {user} 
+              setUser= {setUser} 
+              services ={services} 
+              favorites = {favorites}
+              setFavorites = {setFavorites}
+              />}/>
         {/* <Route exact path="/favoritespage" element={<FavoritesPage user= {user} setUser= {setUser} />}/> */}
-        <Route exact path="/favoritespage" element={<FavoritesPage user= {user} setUser= {setUser} />}/>
+        <Route exact path="/favoritespage" element={
+            <FavoritesPage 
+              user= {user} 
+              setUser= {setUser} 
+              services ={services}
+              favorites = {favorites}
+              setFavorites = {setFavorites}
+              handleRemoveFavorite={handleRemoveFavorite}
+              // handleDeleteFavorite = {handleDeleteFavorite}
+              />}/>
+        <Route exact path="/servicescard" element={
+            <ServicesCard 
+              user= {user} 
+              setUser= {setUser} 
+              services = {services} 
+          />}/>
 
       </Routes>
 
@@ -136,3 +191,13 @@ export default App;
 // }
 
 // export default App;
+
+// function favoriteService(service) {
+//   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+//   favorites.push(service);
+//   localStorage.setItem("favorites", JSON.stringify(favorites));
+//   }
+
+// function getFavorites() {
+//   return JSON.parse(localStorage.getItem("favorites")) || [];
+//   }
