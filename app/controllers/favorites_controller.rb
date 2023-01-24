@@ -14,9 +14,13 @@ class FavoritesController < ApplicationController
 
     def create
         favorite = Favorite.new(favorite_params)
-        favorite.user = @current_user
-        favorite.save 
-        render json: favorite.service, status: :created     
+        favorite.save
+        if favorite.valid?
+            render json: favorite.service, status: :created 
+        else
+            render json: {"error": favorite.errors.full_messages}, status: :unprocessable_entity
+        end
+            
     end
 
     # def destroy

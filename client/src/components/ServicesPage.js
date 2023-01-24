@@ -54,7 +54,7 @@ function ServicesPage({user, setUser, services, favorites, setFavorites}) {
             <h1>
             {serviceList}
             </h1>
-            <FavoritesPage serviceList = {serviceList}/>
+            <FavoritesPage serviceList = {serviceList} favorites = {favorites}/>
         </div>
     )
 }

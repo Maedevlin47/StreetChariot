@@ -16,7 +16,6 @@ import ServicesCard from './ServicesPage';
 
 
 function App() {
-    const [favorites, setFavorites] = useState([])
     const [user, setUser]= useState(null)
     
     console.log(user)
@@ -31,7 +30,6 @@ function App() {
     },[])
   
   console.log(user)
-  console.log(favorites)
   
   const [services, setServices] = useState([]);
 
@@ -46,12 +44,12 @@ function App() {
   }, []);
 
 // to delete a favorite in favorites page
-  function handleRemoveFavorite(id) {
-    const updateFavoriteArray = favorites.filter(
-      (favorite) => favorite.id !== id
-    );
-    setFavorites(updateFavoriteArray);
-  }
+  // function handleRemoveFavorite(id) {
+  //   const updateFavoriteArray = services.filter(
+  //     (service) => service.id !== id
+  //   );
+  //   setFavorites(updateFavoriteArray);
+  // }
 
 
   return (
@@ -81,8 +79,7 @@ function App() {
               user= {user} 
               setUser= {setUser} 
               services ={services} 
-              favorites = {favorites}
-              setFavorites = {setFavorites}
+              favorites = {user ? user.services : []}
               />}/>
         {/* <Route exact path="/favoritespage" element={<FavoritesPage user= {user} setUser= {setUser} />}/> */}
         <Route exact path="/favoritespage" element={
@@ -90,9 +87,7 @@ function App() {
               user= {user} 
               setUser= {setUser} 
               services ={services}
-              favorites = {favorites}
-              setFavorites = {setFavorites}
-              handleRemoveFavorite={handleRemoveFavorite}
+              favorites = {user ? user.services : []}
               // handleDeleteFavorite = {handleDeleteFavorite}
               />}/>
         <Route exact path="/servicescard" element={
@@ -113,6 +108,15 @@ export default App;
 
 
 
+
+
+
+// function handleRemoveFavorite(id) {
+//   const updateFavoriteArray = favorites.filter(
+//     (favorite) => favorite.id !== id
+//   );
+//   setFavorites(updateFavoriteArray);
+// }
 
 
 // <button onClick={handleClick}>
