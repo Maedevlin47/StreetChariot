@@ -13,7 +13,7 @@ function UserHome ({user, setUser, allservices, setAllServices}) {
     return (  
         <div className="userhome"> 
             <header>Let's get you moving!</header>
-                <h1>{user.favoriteTotal}</h1>
+                <h1>{user && user.favoriteTotal}</h1>
                 <h2 className="userinfo"> </h2>
                 <h2 className="tranportlist"> </h2>
                 <h2 className="favorites"> </h2>

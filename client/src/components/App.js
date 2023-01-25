@@ -40,7 +40,7 @@ function App() {
               r.json().then ((serviceData) => setServices(serviceData));
           }
       })
-    }, []);
+    }, [user]);
   
 // to delete a favorite in favorites page
   function handleRemoveFavorite(id) {
