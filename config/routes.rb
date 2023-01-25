@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resources :services, only: [:index, :create, :show, :update] 
+  resources :favorites, only: [:index, :destroy, :create, :update]
+  resources :users, only: [:index, :destroy, :show, :create, :update]
+
   # do 
   #   resources :favorites, only: [:create]
   # end
-  resources :favorites, only: [:index, :destroy, :create, :update]
   # resources :users, only: [:index, :create, :show, :update]
 
   #signup routes
@@ -27,14 +29,14 @@ Rails.application.routes.draw do
 
   delete "/favorites", to: 'favorites#destroy'
   
-  update  "/services", to: 'services#create'
+  update  "/user/:id", to: 'users#update'
 
 
-  
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
 end
 
+  # patch '/services/:id', to: 'services#update'
 
   #Services routes
 

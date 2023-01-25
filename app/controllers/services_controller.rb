@@ -16,15 +16,23 @@ class ServicesController < ApplicationController
             end
         end
 
-        def update 
-            service = Service.find_by_id(params[:id])
-            if service.update(favorites: params[:favorites])                
-                render json: service
-            else
-                render json: {error: 'Service not found'}, status: :not_found
-            end
-        end
-
+        # def update 
+        #     service = Service.find_by_id(params[:id])
+        #     if service.update(favorites: params[:favorites])                
+        #         render json: service
+        #     else
+        #         render json: {error: 'Service not found'}, status: :not_found
+        #     end
+        # end
+        # def update
+        #     @service = Service.find(params[:id])
+        #     if @service.update(status: params[:status])
+        #         render json: @service
+        #     else
+        #         render json: { error: @service.errors.full_messages }, status: :unprocessable_entity
+        #     end
+        # end
+        
 
     private #################################################################################################
 
@@ -32,9 +40,9 @@ class ServicesController < ApplicationController
         params.permit(:name, :travel_type, :favorite, :website)
     end
     
-    def favorite
-        params.permit(:favorite)
-    end
+    # def favorite
+    #     params.permit(:favorite)
+    # end
 
 end
     

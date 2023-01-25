@@ -8,7 +8,7 @@ import NavBar from './NavBar';
 import LogOut from './LogOut';
 import ServicesPage from './ServicesPage';
 import FavoritesPage from "./FavoritesPage";
-import ServicesCard from './ServicesPage';
+import UserProfile from './UserProfile';
 // import { BrowserRouter as Router } from 'react-router-dom'
 // import ServicesButton from './ServicesButton';
 
@@ -40,16 +40,13 @@ function App() {
               r.json().then ((serviceData) => setServices(serviceData));
           }
       })
-  }, []);
-
-
+    }, []);
   
 // to delete a favorite in favorites page
   function handleRemoveFavorite(id) {
-    const updateFavoriteArray = services.filter(
-      (service) => service.id !== id
-    );
-    setServices(updateFavoriteArray);
+    const updateFavoriteArray = user.services.filter
+      ((service) => service.id !== id);
+    setServices({...user, favorites: updateFavoriteArray});
   }
 
 
@@ -87,14 +84,12 @@ function App() {
             <FavoritesPage 
               user= {user} 
               setUser= {setUser} 
-              services ={services}
-              setServices = {setServices}
               favorites = {user ? user.services : []}
               // setFavorites = {setFavorites}
               handleRemoveFavorite = {handleRemoveFavorite}
               />}/>
-        <Route exact path="/servicescard" element={
-            <ServicesCard 
+        <Route exact path="/userprofile" element={
+            <UserProfile 
               user= {user} 
               setUser= {setUser} 
               services = {services} 

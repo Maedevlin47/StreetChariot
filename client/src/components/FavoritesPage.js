@@ -1,5 +1,5 @@
 // import React, { useEffect } from "react";
-import {useState} from "react";
+// import {useState} from "react";
 // import { id } from "date-fns/locale";
 import React from "react";
 // import { useParams } from "react-router-dom";
@@ -9,8 +9,9 @@ const headers = {
         "Content-Type" : "application/json"}
 
 
-function FavoritesPage({ user, service, servicesList, favorites, handleRemoveFavorite }) {
+function FavoritesPage({ user, favorites, handleRemoveFavorite }) {
     
+
     function handleDelete(user, service) {
         handleRemoveFavorite(service.id);
 
@@ -21,39 +22,27 @@ function FavoritesPage({ user, service, servicesList, favorites, handleRemoveFav
                 user: user,
                 service: service,
             }),
+        }).then((response) => {
+            if (response.ok) {
+                handleRemoveFavorite(service.id);
+            }
         });
     }
-    const [serviceData, setServiceData] = useState([])
 
-    const handleMarkCompleted = async (id) => {
-            try {
-            const response = await fetch(`/api/services/${id}`, {
-                method: 'PATCH',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ status: 'completed' })
-            });
-            const updatedServices = await response.json();
-                setServiceData(updatedServices);
-                } catch (error) {
-                console.error(error);
-                }
-            };
 
     return (
         <div className="favoritespage">
-            {favorites.map((service) => {
+            {favorites.map((service, index) => {
             return (
-                <div className="favoriteslist" key={favorites.id}>
+                <div className="favoriteslist" key={index}>
                     <p>{service.name}</p>
                     <a href= {service.website}>{service.name} Website </a>
                     <p>{service.travel_type}</p>
                 <br />
-                <button 
-                    className="deletefav"
-                    onClick={() => handleDelete(user, service)} >
-                        {handleDelete ? "Remove From Favorites" : "Removed From Favorites"} 
-                </button>
-                <button className="readfav" onClick={() => handleMarkCompleted (serviceData)} > Like? </button>
+                    <button 
+                        className="deletefav"
+                        onClick = {() => handleDelete(user, service)}> Remove Favorite
+                    </button>
                 </div>
             );
         })}
@@ -64,6 +53,21 @@ function FavoritesPage({ user, service, servicesList, favorites, handleRemoveFav
 
 export default FavoritesPage;
 
+
+
+                /* <button className="readfav" onClick={() => handleMarkCompleted (service.id)} > Mark as Read! </button> */
+
+
+
+// {user.id === service.user_id ? ( 
+//     <button 
+//         className="deletefav"
+//         onClick={() => handleDelete(service.id)} > Remove from Favorites
+//     </button>
+// ) : null }
+
+
+// {handleDelete ? "Remove From Favorites" : "Removed From Favorites"} 
 
     // const [user, setUser] = useState({ favorites: [], services: [] });
     // const [favorited, setFavorited] = useState (false)
@@ -213,3 +217,24 @@ export default FavoritesPage;
     //         });
     //     }
     //     console.log(setServiceData)
+
+
+
+
+        // const [serviceReviewData, setServiceReviewData] = useState([])
+    
+    // console.log(serviceReviewData)
+
+    // const handleMarkCompleted = async (id) => {
+    //         try {
+    //         const response = await fetch(`/api/services/${id}`, {
+    //             method: 'PATCH',
+    //             headers: { 'Content-Type': 'application/json' },
+    //             body: JSON.stringify({ status: 'completed' })
+    //         });
+    //         const updatedServices = await response.json();
+    //             setServiceReviewData(updatedServices);
+    //             } catch (error) {
+    //             console.error(error);
+    //             }
+    //         };

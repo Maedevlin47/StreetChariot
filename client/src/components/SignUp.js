@@ -147,6 +147,16 @@ export default SignUp;
 
 
 
+
+
+
+
+
+
+
+
+
+
     // for getting the form to rerender
     // const [signupData,setSignupData] = useState ('')
     // ({name: "", username: "", birthdate: "", 

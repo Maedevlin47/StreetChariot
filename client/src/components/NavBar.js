@@ -16,7 +16,10 @@ function Navbar ({user}) {
                 <br />
                 <NavLink className="servicespage" to="/servicespage">Transport Services</NavLink>
                 <br />
-                <NavLink className="favorites/page" to="/favoritespage">favorites</NavLink>
+                <NavLink className="favoritespage" to="/favoritespage">favorites</NavLink>
+                <br />
+                <NavLink className="userprofile" to="/userprofile">Accout Settings</NavLink>
+                <br />
                 </div>
                 ) : (
                 <div className="loggedout">

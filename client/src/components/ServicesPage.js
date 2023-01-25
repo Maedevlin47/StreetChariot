@@ -1,8 +1,6 @@
 import React from "react";
-import FavoritesPage from "./FavoritesPage";
 // import { Link } from "react-router-dom";
 // import ServicesCard from "./ServicesCard";
-// import { useState} from "react";
 
 
 function ServicesPage({user, setUser, service, services, favorites , setFavorites}) {
@@ -10,8 +8,6 @@ function ServicesPage({user, setUser, service, services, favorites , setFavorite
 
     // const [favorites, setFavorites] = useState(user ? user.services : []);
     
-
-
     function handleClick (service) {
         console.log(service)
         fetch ("/favorites", {
@@ -25,7 +21,8 @@ function ServicesPage({user, setUser, service, services, favorites , setFavorite
         .then((r) =>{
             if (r.ok) {
                 r.json().then((data) => {
-                    setFavorites([data, ...favorites])
+                    setUser({...user, services: [...user.services, data]})
+                    // copy of the array and adding to the new copy
                 } )
             } else {
                 r.json().then((bad) => {
@@ -35,33 +32,31 @@ function ServicesPage({user, setUser, service, services, favorites , setFavorite
         })
     }
     
-
-    
-        const serviceList = services.map((service) => {
-                return (
-                    <div key={service.id}>
-                        <p>{service.name}</p>
-                        <p>{service.travel_type}</p>
-                        <a href= {service.website}>{service.name} Website </a>
-                        <br />
-                        {/* <button className = "markfavorited" onClick = {() => {updateRead(serviceData)}}>Viewed</button> */}
-                    <div>
-                        <button onClick = {() => {handleClick(service)} }>Add to favorites</button>
-                    </div>
-                    </div>
+    const serviceList = services.map((service) => {
+            return (
+                <div key={service.id}>
+                    <p>{service.name}</p>
+                    <p>{service.travel_type}</p>
+                    <a href= {service.website}>{service.name} Website </a>
+                    <br />
+                <div>
+                    <button onClick = {() => {handleClick(service)} }>Add to favorites</button>
+                </div>
+                </div>
 
                 )
             })
+    
     return ( 
 
         <div className="services-page">
             <h1>
             {serviceList}
             </h1>
-            <FavoritesPage 
-            serviceList = {serviceList}
-            favorites = {user ? user.services : []} 
-            />
+            {/* <FavoritesPage 
+        
+            favorites = {user ? user.services : []}  */}
+            
         </div>
     )
 }

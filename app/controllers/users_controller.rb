@@ -27,6 +27,18 @@ class UsersController < ApplicationController
             render json: {error: "User Not Found"}, status: :not_found
         end
     end
+    
+    def update
+        
+        user = User.find(params[:id])
+        if user.update(account_params)
+            render json: user, status: :updated
+        else
+            render json: user.errors, status: :unprocessable_entity
+        end
+    end
+
+
         
     private########################################################################
     
@@ -34,4 +46,10 @@ class UsersController < ApplicationController
         params.permit(:name, :username, :birthdate, :city, :state, :password, :password_confirmation)
     end
     
+
+    def account_params
+        params.require(:user).permit(:name, :username, :city, :state, :password)
+    end
+
+
 end
