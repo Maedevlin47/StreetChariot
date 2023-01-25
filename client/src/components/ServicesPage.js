@@ -5,10 +5,11 @@ import FavoritesPage from "./FavoritesPage";
 // import { useState} from "react";
 
 
-function ServicesPage({user, setUser, services, favorites , setFavorites}) {
+function ServicesPage({user, setUser, service, services, favorites , setFavorites}) {
     console.log(services)
 
     // const [favorites, setFavorites] = useState(user ? user.services : []);
+    
 
 
     function handleClick (service) {
@@ -34,12 +35,6 @@ function ServicesPage({user, setUser, services, favorites , setFavorites}) {
         })
     }
     
-    // function handleDeleteFavorite(id) {
-    //         const updateFavoriteArray = favorites.filter(
-    //             (favorite) => favorite.id !== id
-    //             );
-    //         setFavorites(updateFavoriteArray);
-    //     }
 
     
         const serviceList = services.map((service) => {
@@ -49,6 +44,7 @@ function ServicesPage({user, setUser, services, favorites , setFavorites}) {
                         <p>{service.travel_type}</p>
                         <a href= {service.website}>{service.name} Website </a>
                         <br />
+                        {/* <button className = "markfavorited" onClick = {() => {updateRead(serviceData)}}>Viewed</button> */}
                     <div>
                         <button onClick = {() => {handleClick(service)} }>Add to favorites</button>
                     </div>
@@ -63,7 +59,8 @@ function ServicesPage({user, setUser, services, favorites , setFavorites}) {
             {serviceList}
             </h1>
             <FavoritesPage 
-            serviceList = {serviceList} 
+            serviceList = {serviceList}
+            favorites = {user ? user.services : []} 
             />
         </div>
     )
@@ -71,6 +68,13 @@ function ServicesPage({user, setUser, services, favorites , setFavorites}) {
 
 export default ServicesPage;
 
+
+    // function handleDeleteFavorite(id) {
+    //         const updateFavoriteArray = favorites.filter(
+    //             (favorite) => favorite.id !== id
+    //             );
+    //         setFavorites(updateFavoriteArray);
+    //     }
 // handleDeleteFavorite = {handleDeleteFavorite}
 
 /* <ServicesCard serviceList = {serviceList} ></ServicesCard> */
@@ -123,3 +127,10 @@ export default ServicesPage;
 // </div>
 // )
 // })
+
+
+    // const [serviceData, setServiceData] = useState(service)
+
+    // const headers = {
+    //     Accept: "application/json",
+    //         "Content-Type" : "application/json"}

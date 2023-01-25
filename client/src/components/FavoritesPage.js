@@ -1,5 +1,5 @@
 // import React, { useEffect } from "react";
-// import {useState} from "react";
+import {useState} from "react";
 // import { id } from "date-fns/locale";
 import React from "react";
 // import { useParams } from "react-router-dom";
@@ -9,7 +9,7 @@ const headers = {
         "Content-Type" : "application/json"}
 
 
-function FavoritesPage({ user, service, servicesList, favorites = [], handleRemoveFavorite }) {
+function FavoritesPage({ user, service, servicesList, favorites, handleRemoveFavorite }) {
     
     function handleDelete(user, service) {
         handleRemoveFavorite(service.id);
@@ -23,7 +23,21 @@ function FavoritesPage({ user, service, servicesList, favorites = [], handleRemo
             }),
         });
     }
+    const [serviceData, setServiceData] = useState([])
 
+    const handleMarkCompleted = async (id) => {
+            try {
+            const response = await fetch(`/api/services/${id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status: 'completed' })
+            });
+            const updatedServices = await response.json();
+                setServiceData(updatedServices);
+                } catch (error) {
+                console.error(error);
+                }
+            };
 
     return (
         <div className="favoritespage">
@@ -39,6 +53,7 @@ function FavoritesPage({ user, service, servicesList, favorites = [], handleRemo
                     onClick={() => handleDelete(user, service)} >
                         {handleDelete ? "Remove From Favorites" : "Removed From Favorites"} 
                 </button>
+                <button className="readfav" onClick={() => handleMarkCompleted (serviceData)} > Like? </button>
                 </div>
             );
         })}
@@ -183,3 +198,18 @@ export default FavoritesPage;
         // useEffect(() => {
         //     setFavorites(getFavorites());
         // },[]);
+
+
+
+            // function updateRead() {
+    //     fetch("/services", {
+    //         method: "PATCH",
+    //         headers,
+    //         body: JSON.stringify( favorites ? "read" : "need to read" ),
+    //         })
+    //     .then((r) => r.json())
+    //     .then((data) => {
+    //             setServiceData({ ...data });
+    //         });
+    //     }
+    //     console.log(setServiceData)

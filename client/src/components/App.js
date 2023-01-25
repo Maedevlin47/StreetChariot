@@ -9,7 +9,6 @@ import LogOut from './LogOut';
 import ServicesPage from './ServicesPage';
 import FavoritesPage from "./FavoritesPage";
 import ServicesCard from './ServicesPage';
-
 // import { BrowserRouter as Router } from 'react-router-dom'
 // import ServicesButton from './ServicesButton';
 
@@ -89,6 +88,7 @@ function App() {
               user= {user} 
               setUser= {setUser} 
               services ={services}
+              setServices = {setServices}
               favorites = {user ? user.services : []}
               // setFavorites = {setFavorites}
               handleRemoveFavorite = {handleRemoveFavorite}
@@ -112,6 +112,20 @@ export default App;
 
 
 
+
+
+    // function updateRead() {
+    //     fetch("/services", {
+    //         method: "PATCH",
+    //         headers,
+    //         body: JSON.stringify({ favorites: ++service.favorites }),
+    //         })
+    //     .then((r) => r.json())
+    //     .then((data) => {
+    //             setServiceData({ ...data });
+    //         });
+    //     }
+    //     console.log(setServiceData)
 
 
 // function handleRemoveFavorite(id) {

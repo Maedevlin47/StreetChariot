@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
   delete "/favorites", to: 'favorites#destroy'
   
+  update  "/services", to: 'services#create'
+
 
   
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
