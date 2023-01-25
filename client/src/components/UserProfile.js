@@ -12,15 +12,15 @@ function UserProfile ({user, setUser}) {
 
     const handleSubmitAccount = (e) => {
         e.preventDefault();
-        fetch(`/user/:id`, {
+        fetch(`/users/${user.id}`, {
             method: "PATCH",
-            headers: {"content-type": "application/json"},
+            headers: {"Content-Type": "application/json"},
             body: JSON.stringify(accountData)
         })
             .then((r) => {
             if (r.ok) {
                 r.json().then((data) => {
-                    setAccountData({...user, data});
+                    setUser(data);
                 } )
             } else {
                 r.json().then(console.warn);

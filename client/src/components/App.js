@@ -44,15 +44,14 @@ function App() {
   
 // to delete a favorite in favorites page
   function handleRemoveFavorite(id) {
-    const updateFavoriteArray = user.services.filter
-      ((service) => service.id !== id);
-    setServices({...user, favorites: updateFavoriteArray});
+    const updateFavoriteArray = user.services.filter ((service) => service.id !== id);
+    setUser({...user, services: updateFavoriteArray});
   }
 
 
   return (
     <div className="App">
-      <header className="App-header">Welcome
+      <header className="App-header"> Welcome {user &&`${user.name}`}
       <NavBar user = {user}/>
       </header>
       <Routes>

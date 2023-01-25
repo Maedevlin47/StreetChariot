@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
-    skip_before_action :authorize, only: [:create, :show]
+    skip_before_action :authorize, only: [:create]
 
-    def index
-        users = User.all
-        render json: users, status: :ok
+    # def index
+    #     users = User.all
+    #     render json: users, status: :ok
     
-    end
+    # end
     
 
     def create
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
         if user
             render json: user, status: :ok
         else 
-            render json: {error: "User Not Found"}, status: :not_found
+            render json: {"error:": user.errors.full_messages}, status: :not_found
         end
     end
     
@@ -32,9 +32,9 @@ class UsersController < ApplicationController
         
         user = User.find(params[:id])
         if user.update(account_params)
-            render json: user, status: :updated
+            render json: user, status: :ok
         else
-            render json: user.errors, status: :unprocessable_entity
+            render json: {"error:": user.errors.full_messages}, status: :unprocessable_entity
         end
     end
 
