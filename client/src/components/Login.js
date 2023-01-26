@@ -41,8 +41,8 @@ function Login({ user, setUser }) {
     }
 
     return (
-        <div className="Login">
-        <form onSubmit={handleSubmit}>
+        <div>
+        <form className="Login" onSubmit={handleSubmit}>
         <h1>Login</h1>
         <label>Username</label>
         <input
@@ -60,7 +60,7 @@ function Login({ user, setUser }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Login</button>
+        <button className="signinbtn" type="submit">Login</button>
         </form>
         {errors? <div className = "error-message">{errors}</div>: null}
 

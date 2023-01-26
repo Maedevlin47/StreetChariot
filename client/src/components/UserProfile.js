@@ -45,7 +45,7 @@ function UserProfile ({user, setUser}) {
     return (
 
     <div className="editaccout">
-        <form onSubmit = {handleSubmitAccount}>
+        <form className = "editform" onSubmit = {handleSubmitAccount}>
                 <label>
                     Name:
                     <input type="text" name="name" value={accountData.name} onChange={handleAccountChange} />

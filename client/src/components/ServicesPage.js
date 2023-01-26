@@ -1,12 +1,9 @@
 import React from "react";
 // import { Link } from "react-router-dom";
-// import ServicesCard from "./ServicesCard";
-
 
 function ServicesPage({user, setUser, service, services, favorites , setFavorites}) {
     console.log(services)
 
-    // const [favorites, setFavorites] = useState(user ? user.services : []);
     
     function handleClick (service) {
         console.log(service)
@@ -35,28 +32,25 @@ function ServicesPage({user, setUser, service, services, favorites , setFavorite
     const serviceList = services.map((service) => {
             return (
                 <div key={service.id}>
-                    <p>{service.name}</p>
-                    <p>{service.travel_type}</p>
-                    <a href= {service.website}>{service.name} Website </a>
                     <br />
-                <div>
+                        <p>{service.name}</p>
+                        <p>{service.travel_type}</p>
+                            <a href= {service.website}>{service.name} Website </a>
+                    <br />
                     <button onClick = {() => {handleClick(service)} }>Add to favorites</button>
                 </div>
-                </div>
-
                 )
             })
     
     return ( 
 
         <div className="services-page">
-            <h1>
+            <h1 className ="servicestitle">Let's get you cooking with gass!</h1>
+            <h1 className="serviceslist"> 
+            <br />
             {serviceList}
+            <br />
             </h1>
-            {/* <FavoritesPage 
-        
-            favorites = {user ? user.services : []}  */}
-            
         </div>
     )
 }

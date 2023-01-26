@@ -5,7 +5,7 @@ function Navbar ({user}) {
 
 
     return(
-        <div className="navbar">
+        <div className="main-nav">
             {user?
                 
                 (
@@ -25,7 +25,7 @@ function Navbar ({user}) {
                 <div className="loggedout">
                 <NavLink className="login" to="/login">Login</NavLink>
                 <br />
-                <NavLink className="signup" to="/signup">Signup</NavLink>
+                <NavLink className="signupnav" to="/signup">Signup</NavLink>
                 </div>
                 )
             }

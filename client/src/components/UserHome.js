@@ -13,13 +13,15 @@ function UserHome ({user, setUser, allservices, setAllServices}) {
     return (  
         <div className="userhome"> 
             <header>Let's get you moving!</header>
-                <h1>{user && user.favoriteTotal}</h1>
                 <h2 className="userinfo"> </h2>
                 <h2 className="tranportlist"> </h2>
                 <h2 className="favorites"> </h2>
             <ServicesButton user ={user} setUser ={setUser} />
             <br />
+            <br />
+            <h2>{user && user.favoriteTotal}</h2>
             <FavoritesButton user ={user} setUser ={setUser} />
+            
         </div>
     )
 }
