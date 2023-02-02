@@ -9,6 +9,8 @@ import LogOut from './LogOut';
 import ServicesPage from './ServicesPage';
 import FavoritesPage from "./FavoritesPage";
 import UserProfile from './UserProfile';
+import Footer from './Footer';
+import TaxiCab from './TaxiCab.jpg';
 // import { BrowserRouter as Router } from 'react-router-dom'
 // import ServicesButton from './ServicesButton';
 
@@ -50,54 +52,65 @@ function App() {
 
 
   return (
-    <div className="App">
-      <header className="App-header"> Welcome {user &&`${user.name}`}
-      <NavBar user = {user}/>
+  
+  <div>
+    <header className="App-header"> Welcome {user &&`${user.name}`}!
+        <div class="container">
+            <h1 class="site-title">StreetChariot</h1>
+          <span class="site-tagline">Let's bust a move!</span>
+        </div>
       </header>
+      <NavBar className = "main-nav" user = {user}/>
+        <div>
+          <img src={TaxiCab} alt="taxi" className='fpmiddle'/> 
+        </div>
+        <div></div>
       <Routes>
-        <Route exact path="/signup" element={
-            <SignUp 
-              user= {user} 
-              setUser= {setUser} />}/>
-        <Route exact path="/login" element={
-            <Login  
-              user= {user} 
-              setUser= {setUser} />}/>
-        <Route exact path="/userhome" element={
-            <UserHome 
-            user={user} 
-            setUser ={setUser}/>}/>
-        <Route exact path="/logout" element={
-            <LogOut 
-              user= {user} 
-              setUser= {setUser} />}/>
-        <Route exact path="/servicespage" element={
-            <ServicesPage 
-              user= {user} 
-              setUser= {setUser} 
-              services ={services} 
-              favorites = {user ? user.services : []}
-              />}/>
-        {/* <Route exact path="/favoritespage" element={<FavoritesPage user= {user} setUser= {setUser} />}/> */}
-        <Route exact path="/favoritespage" element={
-            <FavoritesPage 
-              user= {user} 
-              setUser= {setUser} 
-              favorites = {user ? user.services : []}
-              // setFavorites = {setFavorites}
-              handleRemoveFavorite = {handleRemoveFavorite}
-              />}/>
-        <Route exact path="/userprofile" element={
-            <UserProfile 
-              user= {user} 
-              setUser= {setUser} 
-              services = {services} 
-          />}/>
+          <Route exact path="/signup" element={
+              <SignUp 
+                user= {user} 
+                setUser= {setUser} />}/>
+          <Route exact path="/login" element={
+              <Login  
+                user= {user} 
+                setUser= {setUser} />}/>
+          <Route exact path="/userhome" element={
+              <UserHome 
+              user={user} 
+              setUser ={setUser}/>}/>
+          <Route exact path="/logout" element={
+              <LogOut 
+                user= {user} 
+                setUser= {setUser} />}/>
+          <Route exact path="/servicespage" element={
+              <ServicesPage 
+                user= {user} 
+                setUser= {setUser} 
+                services ={services} 
+                favorites = {user ? user.services : []}
+                />}/>
+          {/* <Route exact path="/favoritespage" element={<FavoritesPage user= {user} setUser= {setUser} />}/> */}
+          <Route exact path="/favoritespage" element={
+              <FavoritesPage 
+                user= {user} 
+                setUser= {setUser} 
+                favorites = {user ? user.services : []}
+                // setFavorites = {setFavorites}
+                handleRemoveFavorite = {handleRemoveFavorite}
+                />}/>
+          <Route exact path="/userprofile" element={
+              <UserProfile 
+                user= {user} 
+                setUser= {setUser} 
+                services = {services} 
+            />}/>
 
-      </Routes>
+        </Routes>
+        <Footer className = "footer"/>  
+  </div>
 
 
-    </div>
+
   );
 }
 

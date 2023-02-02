@@ -131,7 +131,7 @@ function SignUp ({user, setUser}) {
                 />
                 <br/>
 
-                <button type="submit">Sign Up</button>
+                <button className="Signupbtn" type="submit">Sign Up</button>
 
         </form>
         

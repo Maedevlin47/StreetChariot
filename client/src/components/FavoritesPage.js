@@ -1,6 +1,3 @@
-// import React, { useEffect } from "react";
-// import {useState} from "react";
-// import { id } from "date-fns/locale";
 import React from "react";
 // import { useParams } from "react-router-dom";
 
