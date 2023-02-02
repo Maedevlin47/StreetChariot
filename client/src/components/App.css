@@ -126,7 +126,6 @@
 }
 
 .Logout {
-  border: 3px solid rgb(156, 154, 151) ;
   min-height: 1vh;
   max-width: 100%; 
   max-height: 100%;
@@ -145,7 +144,7 @@
 
 }
 .userhome {
-  border: .5px solid rgb(156, 154, 151) ;
+  /* border: .5px solid rgb(156, 154, 151) ; */
   min-height: 1vh;
   max-width: 100%; 
   max-height: 100%;
@@ -164,18 +163,18 @@
 }
 
 .serivicesbutton {
-  border: 3px solid rgb(156, 154, 151) ;
+  border: .5px solid rgb(156, 154, 151) ;
 
 }
-
+/* 
 .servicespage {
-  border: 3px solid rgb(156, 154, 151) ;
+  border: .5px solid rgb(156, 154, 151) ;
 
-}
+} */
 
 
 .serviceslist {
-  border: 3px solid rgb(156, 154, 151) ;
+  border: .5px solid rgb(156, 154, 151) ;
   min-height: 10vh;
   max-width: 100%; 
   max-height: 100%;
@@ -207,7 +206,7 @@
 
 }
 .favoriteslist {
-  border: 3px solid rgb(156, 154, 151) ;
+  border: .5px solid rgb(156, 154, 151) ;
   min-height: 10vh;
   max-width: 100%; 
   max-height: 100%;
@@ -227,10 +226,10 @@
 
 }
 
-.favoritespage {
-  border: 3px solid rgb(156, 154, 151) ;
+/* .favoritespage {
+  border: .5px solid rgb(156, 154, 151) ;
 
-}
+} */
 
 .editform {
   border: 3px solid rgb(156, 154, 151) ;
@@ -359,6 +358,8 @@
   font-stretch: expanded;
   padding-left: 5%;
   padding-right: 80%;
+  font-family: "Righteous", sans-serif; 
+
 }
 
 .main-nav b {
