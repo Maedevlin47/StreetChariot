@@ -1,4 +1,5 @@
 import './App.css';
+import React from "react";
 import {useEffect, useState } from 'react';
 import {Route, Routes} from 'react-router-dom';
 import SignUp from './SignUp';
@@ -10,7 +11,20 @@ import ServicesPage from './ServicesPage';
 import FavoritesPage from "./FavoritesPage";
 import UserProfile from './UserProfile';
 import Footer from './Footer';
-import TaxiCab from './TaxiCab.jpg';
+import MainPic from './MainPic';
+
+// import 'tailwindcss/tailwind.css';
+// import styles from "./index.css"
+
+
+// import Container from '@mui/material/Container';
+// import * as React from 'react';
+
+
+// import * as ReactDOM from 'react-dom/client';
+// import * as React from 'react';
+// import TaxiCab from './TaxiCab.jpg';
+// import { useLocation } from 'react-router-dom';
 // import { BrowserRouter as Router } from 'react-router-dom'
 // import ServicesButton from './ServicesButton';
 
@@ -53,17 +67,18 @@ function App() {
 
   return (
   
-  <div>
+    <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
     <header className="App-header"> Welcome {user &&`${user.name}`}!
         <div class="container">
             <h1 class="site-title">StreetChariot</h1>
           <span class="site-tagline">Let's bust a move!</span>
         </div>
       </header>
-      <NavBar className = "main-nav" user = {user}/>
-        <div>
+      <NavBar user = {user}/>
+      {/* className = "main-nav" */}
+        {/* <div>
           <img src={TaxiCab} alt="taxi" className='fpmiddle'/> 
-        </div>
+        </div> */}
         <div></div>
       <Routes>
           <Route exact path="/signup" element={
@@ -106,6 +121,8 @@ function App() {
             />}/>
 
         </Routes>
+        {/* </Container> */}
+        <MainPic/>
         <Footer className = "footer"/>  
   </div>
 

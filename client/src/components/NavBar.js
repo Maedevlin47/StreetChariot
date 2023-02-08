@@ -1,15 +1,15 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 
 function Navbar ({user}) {
 
 
     return(
-        <div className="main-nav">
+        <div className="w-full">
+            <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-0">
             {user?
                 
                 (
-                <div className="loggedin">
+                <div className="flex flex-wrap items-center justify-between w-full lg:w-auto">
                 <NavLink className="logout" to="/logout">Logout</NavLink>
                 <br />
                 <NavLink className="userhome" to="/userhome">Home</NavLink>
@@ -27,12 +27,24 @@ function Navbar ({user}) {
                 <br />
                 <NavLink className="signupnav" to="/signup">Signup</NavLink>
                 </div>
-                )
-            }
 
+                )
+            
+            }
+            </nav>
         </div>
     )
-}
+                }
 
 export default Navbar;
+
+
+
+
+
+
+
+
+
+
 

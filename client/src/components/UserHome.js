@@ -1,7 +1,4 @@
-// import {useEffect, useState} from "react";
-// import ServicesPage from './ServicesPage';
-// import {Route, Routes} from 'react-router-dom';
-import React from "react";
+
 import ServicesButton from "./ServicesButton";
 // import FavoritesPage from "./FavoritesPage";
 import FavoritesButton from "./FavoritesButton";

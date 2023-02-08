@@ -1,4 +1,6 @@
-import React from "react";
+// import * as React from 'react';
+// import Card from '@material-ui/core/Card';
+
 // import { Link } from "react-router-dom";
 
 function ServicesPage({user, setUser, service, services, favorites , setFavorites}) {
@@ -43,15 +45,15 @@ function ServicesPage({user, setUser, service, services, favorites , setFavorite
             })
     
     return ( 
-
-        <div className="services-page">
+        <div>
             <h1 className ="servicestitle">Let's get you cooking with gass!</h1>
             <h1 className="serviceslist"> 
-            <br />
             {serviceList}
+            <br />
             <br />
             </h1>
         </div>
+        
     )
 }
 
