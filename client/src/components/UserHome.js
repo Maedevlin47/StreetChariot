@@ -9,7 +9,7 @@ function UserHome ({user, setUser, allservices, setAllServices}) {
     
     return (  
         <div className="userhome"> 
-            <header>Let's get you moving!</header>
+            <header className= "text-center font-['Quicksand'] extrabold text-5xl pt-10 text-red-800"> Welcome {user &&`${user.name}`}!</header>
                 <h2 className="userinfo"> </h2>
                 <h2 className="tranportlist"> </h2>
                 <h2 className="favorites"> </h2>
@@ -28,6 +28,7 @@ export default UserHome;
 
 
 
+{/* <header>Let's get you moving!</header> */}
 
 
 

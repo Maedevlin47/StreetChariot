@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [],
+  content: ['./client/src/components/**/*.{html,js,jpg}',
+  // './src/**/*.js',
+  './client/public/index.html',
+  "./src/**/*.{js,ts,jsx,tsx}",],
   presets: [],
   darkMode: 'media', // or 'class'
   theme: {
@@ -244,8 +247,9 @@ module.exports = {
     container: {},
     content: [
       './client/src/components/**/*.{html,js,jpg}',
-      './src/**/*.js',
+      // './src/**/*.js',
       './client/public/index.html',
+      "./src/**/*.{js,ts,jsx,tsx}",
       ],
     cursor: {
       auto: 'auto',
@@ -390,6 +394,7 @@ module.exports = {
         '"Courier New"',
         'monospace',
       ],
+      quicksand:['Quicksand, sans-serif']
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],
@@ -969,5 +974,9 @@ module.exports = {
     'active',
     'disabled',
   ],
-  plugins: [],
+  
+  plugins:
+  [require("daisyui")],
+
 }
+  

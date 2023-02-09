@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import React from "react";
 import {useEffect, useState } from 'react';
 import {Route, Routes} from 'react-router-dom';
@@ -12,22 +12,7 @@ import FavoritesPage from "./FavoritesPage";
 import UserProfile from './UserProfile';
 import Footer from './Footer';
 import MainPic from './MainPic';
-
-// import 'tailwindcss/tailwind.css';
-// import styles from "./index.css"
-
-
-// import Container from '@mui/material/Container';
-// import * as React from 'react';
-
-
-// import * as ReactDOM from 'react-dom/client';
-// import * as React from 'react';
-// import TaxiCab from './TaxiCab.jpg';
-// import { useLocation } from 'react-router-dom';
-// import { BrowserRouter as Router } from 'react-router-dom'
-// import ServicesButton from './ServicesButton';
-
+import 'tailwindcss/tailwind.css';
 
 
 function App() {
@@ -66,21 +51,20 @@ function App() {
 
 
   return (
-  
-    <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
-    <header className="App-header"> Welcome {user &&`${user.name}`}!
-        <div class="container">
-            <h1 class="site-title">StreetChariot</h1>
-          <span class="site-tagline">Let's bust a move!</span>
-        </div>
+
+    <div className="min-h-screen w-screen bg-fixed">
+    <header className= "text-center font-['Quicksand'] extrabold text-4xl pt-2 text-red-800" 
+      style={{ backgroundColor: "rgba(255, 255, 255, 0.160)" }}>
+
+    <NavBar class= "font-['Quicksand'] text-4xl" user = {user}/> 
+        <div class="text-center">
+          <br></br>
+            <h1 class="text-center text-9xl font-medium" >StreetChariot</h1>
+          <h2 class="text-right font-['Quicksand']pb-2 pr-3">Let's bust a move!</h2>
+        </div> 
       </header>
-      <NavBar user = {user}/>
-      {/* className = "main-nav" */}
-        {/* <div>
-          <img src={TaxiCab} alt="taxi" className='fpmiddle'/> 
-        </div> */}
         <div></div>
-      <Routes>
+      <Routes style={{ backgroundColor: "rgba(255, 255, 255, 0.160)" }}>
           <Route exact path="/signup" element={
               <SignUp 
                 user= {user} 
@@ -123,7 +107,7 @@ function App() {
         </Routes>
         {/* </Container> */}
         <MainPic/>
-        <Footer className = "footer"/>  
+        <Footer className="text-center "/>  
   </div>
 
 
@@ -135,6 +119,33 @@ export default App;
 
 
 
+
+
+
+
+
+
+
+
+
+
+// import styles from "./index.css"
+
+
+// import Container from '@mui/material/Container';
+// import * as React from 'react';
+
+
+// import * as ReactDOM from 'react-dom/client';
+// import * as React from 'react';
+// import TaxiCab from './TaxiCab.jpg';
+// import { useLocation } from 'react-router-dom';
+// import { BrowserRouter as Router } from 'react-router-dom'
+// import ServicesButton from './ServicesButton';
+
+
+
+{/* <header className= "text-center font-['Quicksand'] extrabold text-5xl pt-10 text-red-800"> Welcome {user &&`${user.name}`}! */}
 
 
 
