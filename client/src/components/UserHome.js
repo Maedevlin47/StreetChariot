@@ -8,18 +8,30 @@ function UserHome ({user, setUser, allservices, setAllServices}) {
 
     
     return (  
-        <div className="userhome"> 
-            <header className= "text-center font-['Quicksand'] extrabold text-5xl pt-10 text-red-800"> Welcome {user &&`${user.name}`}!</header>
-                <h2 className="userinfo"> </h2>
-                <h2 className="tranportlist"> </h2>
-                <h2 className="favorites"> </h2>
-            <ServicesButton user ={user} setUser ={setUser} />
-            <br />
-            <br />
-            <h2>{user && user.favoriteTotal}</h2>
-            <FavoritesButton user ={user} setUser ={setUser} />
-            
-        </div>
+        <body className="font-['Quicksand']">
+            <div className="container mx-auto max-w-sm bg-white w-full bg-cover rounded-l-lg"> 
+                <div class="flex justify-center my-13">
+                    <div class="w-full bg-cover rounded-l-lg pb-40">
+                        <header className= "text-center font-['Quicksand'] extrabold text-5xl pb-4 text-red-800 pt-3"> Welcome {user &&`${user.name}`}!</header>
+                            <h2 className="pl-5"> </h2>
+                            <br></br>
+                            <h2 className="pl-5"> </h2>
+                            <br></br>
+                            <h2 className="pl-5"> </h2>
+                            <br></br>
+                            <br></br>
+                            <ServicesButton class= "" user ={user} setUser ={setUser} />
+                            <br />
+                            <br />
+                            <h2 class= "pl-5 font-bold text-gray-800 text-2xl">{user && user.favoriteTotal}</h2>
+                            <br />
+                            <br />
+                            <FavoritesButton user ={user} setUser ={setUser} />
+                        </div>
+                    </div>
+                </div>
+        </body>        
+
     )
 }
 

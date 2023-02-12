@@ -1,3 +1,4 @@
+import React from "react";
 import { NavLink } from 'react-router-dom';
 
 function ServicesButton (){
@@ -5,8 +6,8 @@ function ServicesButton (){
 
         
         return (
-            <div className="services-button">
-                <NavLink to='/servicespage'>
+            <div className="">
+                <NavLink class= "pl-5 font-bold text-gray-800 text-2xl" to='/servicespage'>
                     <button>
                     View Transportation Services!
                     </button>
@@ -33,3 +34,11 @@ export default ServicesButton;
 
 
 
+// return(
+//     <button className="servicebutton" onClick = {() => history.push({
+//         pathname: "/servicespage",
+//         state: {user, setUser, setAllServices}
+//     })}>
+//         Transportation Services!
+//     </button>
+// )

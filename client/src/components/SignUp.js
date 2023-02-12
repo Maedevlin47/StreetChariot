@@ -60,15 +60,15 @@ function SignUp ({user, setUser}) {
         // navigate('/userhome')
         
     return (
-        <div class="min-h-screen p-0 bg-red-300 flex items-center justify-center font-['Quicksand']">
+        <div class="min-h-screen p-0 bg-red-400 flex items-center justify-center font-['Quicksand']">
             <div class="container max-w-screen-lg mx-auto">
                 <div>
-                    <h2 class="font-bold text-3xl text-gray-600">Sign up form!</h2>
-                    <p class="font-bold text-gray-500 mb-6 text-2xl">Give it a try & find your next ride!</p>
+                    <h2 class="font-bold text-3xl text-gray-900">Sign up form!</h2>
+                    <p class="font-bold text-gray-800 mb-6 text-2xl">Give it a try & find your next ride!</p>
 
                 <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                        <div class="text-gray-600">
+                        <div class="text-gray-900">
                             <p class="font-bold text-2xl">Personal Details</p>
                             <p class="text-lg font-bold"> Please fill out all the fields.</p>
                 </div>
@@ -161,7 +161,7 @@ function SignUp ({user, setUser}) {
                     </div>
                 <br/>
                     <div class="md:col-span-5 text-right">
-                        <div class="inline-flex items-end bg-indigo-600 text-lg">
+                        <div class="inline-flex items-end bg-sky-900 text-lg">
                             <button class="opacity-100 hover:opacity-50 text-white font-bold py-2 px-4 rounded"
                                 type="submit">
                                 Sign Up</button>

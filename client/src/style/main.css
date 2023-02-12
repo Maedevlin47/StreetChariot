@@ -53,7 +53,7 @@ html {
 */
 
 
-body {
+.notloggedin {
   background-color: #fff;
   background-image: linear-gradient(
       45deg,
@@ -78,6 +78,14 @@ body {
   margin: 0; /* 1 */
   line-height: inherit; /* 2 */
 }
+
+
+
+/* .login {
+  background-color: #9ca3af;
+  background-blend-mode: overlay;
+} */
+
 
 
 /*

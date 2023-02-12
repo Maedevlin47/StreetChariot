@@ -6,7 +6,7 @@ function FavoritesButton (){
         
         return (
             <div className="favorites-button">
-                <NavLink to='/favoritespage'>
+                <NavLink class= "pl-5 font-bold text-gray-800 text-2xl" to='/favoritespage'>
                     <button>
                     Your Favorites!
                     </button>
