@@ -1,4 +1,3 @@
-// import { useLocation } from 'react-router-dom';
 import LoginP from './LoginP.jpeg';
 import 'tailwindcss/tailwind.css';
 

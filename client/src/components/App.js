@@ -56,11 +56,10 @@ function App() {
       <div className="notloggedin">
       <div className="min-h-screen w-screen bg-fixed">
       <header className= "text-center font-['Quicksand'] extrabold text-4xl pt-.5 text-red-800">
-
-      <NavBar class= "font-['Quicksand'] text-4xl" user = {user}/> 
+        <NavBar class= "font-['Quicksand'] text-4xl" user = {user}/> 
           <div class="text-center">
-              <h1 class="text-center text-9xl font-medium">StreetChariot</h1>
-            <h2 class="text-right font-['Quicksand']pb-2 pr-3 pb-1">Let's bust a move!</h2>
+              <h1 class="text-center text-9xl font-medium pb-3">StreetChariot</h1>
+            {/* <h2 class="text-right font-['Quicksand']pb-2 pr-3 pb-1">Let's bust a move!</h2> */}
           </div> 
         </header>
         <Routes style={{ backgroundColor: "rgba(255, 255, 255, 0.160)" }}>
@@ -108,7 +107,7 @@ function App() {
           <MainPic/>
           <Footer className="text-center "/>  
     </div>
-    </div>
+  </div>
 
 
 
