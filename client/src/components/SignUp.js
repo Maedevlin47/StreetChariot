@@ -77,7 +77,7 @@ function SignUp ({user, setUser}) {
                     <div class="md:col-span-5">
                 <br/>
                     <div class="md:col-span-5 text-lg">
-                        <label for="full_name">Full Name:</label>
+                        <label for="full_name">Full Name:
                         <input
                             type="text"
                             id="name"
@@ -86,10 +86,11 @@ function SignUp ({user, setUser}) {
                             class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                             value={name}
                             onChange={(e) => setName(e.target.value)}/>
+                        </label>
                     </div>
                 <br/>
                     <div class="md:col-span-5 text-lg">
-                        <label for="username">Username:</label>
+                        <label for="username">Username:
                         <input
                             type="text"
                             id="username"
@@ -98,10 +99,11 @@ function SignUp ({user, setUser}) {
                             class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                             value={userName}
                             onChange={(e) => setUserName(e.target.value)}/>
+                        </label>
                     </div>
                 <br/>
                     <div class="md:col-span-5 text-lg">
-                        <label for="birthdate">Birthdate:</label>
+                        <label for="birthdate">Birthdate:
                         <input
                             type="date"
                             id="birthdate"
@@ -109,10 +111,11 @@ function SignUp ({user, setUser}) {
                             class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                             value={birthdate}
                             onChange={(e) => setBirthdate(e.target.value)}/>
+                        </label>    
                     </div>
                 <br/>
                     <div class="md:col-span-5 text-lg">
-                        <label for="city">City Name:</label>
+                        <label for="city">City Name:
                         <input
                             type="city"
                             id="city"
@@ -121,10 +124,11 @@ function SignUp ({user, setUser}) {
                             class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                             value={city}
                             onChange={(e) => setCity(e.target.value)}/>
+                        </label>
                     </div>
                 <br/>
                     <div class="md:col-span-5 text-lg">
-                        <label for="state">State Abbreviation:</label>                    
+                        <label for="state">State Abbreviation:                   
                         <input
                             type="state"
                             id="state"
@@ -133,11 +137,12 @@ function SignUp ({user, setUser}) {
                             class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                             value={state}
                             onChange={(e) => setState(e.target.value)}/>
+                        </label>    
                     </div>
 
                 <br/>
                     <div class="md:col-span-5 text-lg">
-                        <label for="password">Password:</label>                    
+                        <label for="password">Password:                   
                         <input
                             type="password"
                             id="password"
@@ -146,10 +151,11 @@ function SignUp ({user, setUser}) {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             autoComplete="current-password"/>
+                        </label>
                     </div>
                 <br/>
                     <div class="md:col-span-5 text-lg">
-                        <label for="passwordConfirmation">Password Confirmation:</label>
+                        <label for="passwordConfirmation">Password Confirmation:
                         <input
                             type="password"
                             id="password_confirmation"
@@ -158,6 +164,7 @@ function SignUp ({user, setUser}) {
                             value={passwordConfirmation}
                             onChange={(e) => setPasswordConfirmation(e.target.value)}
                             autoComplete="current-password"/>
+                        </label>
                     </div>
                 <br/>
                     <div class="md:col-span-5 text-right">
@@ -169,9 +176,9 @@ function SignUp ({user, setUser}) {
                     </div>
                     </div>
                     </div>
-            </form>
-            </div>
-            </div>
+                </form>
+                </div>
+                </div>
             </div>
         </div>
     </div>

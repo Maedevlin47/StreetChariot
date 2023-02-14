@@ -12,6 +12,8 @@ import FavoritesPage from "./FavoritesPage";
 import UserProfile from './UserProfile';
 import Footer from './Footer';
 import MainPic from './MainPic';
+import MedTitle from './MedTitle';
+
 import 'tailwindcss/tailwind.css';
 
 
@@ -57,9 +59,8 @@ function App() {
       <div className="min-h-screen w-screen bg-fixed">
       <header className= "text-center font-['Quicksand'] extrabold text-4xl pt-.5 text-red-800">
         <NavBar class= "font-['Quicksand'] text-4xl" user = {user}/> 
-          <div class="text-center">
-              <h1 class="text-center text-9xl font-medium pb-3">StreetChariot</h1>
-            {/* <h2 class="text-right font-['Quicksand']pb-2 pr-3 pb-1">Let's bust a move!</h2> */}
+          <div class="">
+            <MedTitle class="h-1/5"/>
           </div> 
         </header>
         <Routes style={{ backgroundColor: "rgba(255, 255, 255, 0.160)" }}>

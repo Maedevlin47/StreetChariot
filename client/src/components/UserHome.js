@@ -16,11 +16,11 @@ function UserHome ({user, setUser, allservices, setAllServices}) {
                     <div class="flex justify-center my-13">
                         <div class="w-full bg-cover rounded-l-lg pb-40">
                             <header class= "text-center font-['Quicksand'] extrabold text-5xl pb-4 text-red-800 pt-3"> Welcome {user &&`${user.name}`}!</header>
+                            <h2 class="text-right text-3xl pt-5 pb-2 pr-36 text-red-800">Let's bust a move...</h2>
                                 <div class="center mx-4 pl-20">
                                     <HomeDogPic class= "h-auto m-8 lg:block"></HomeDogPic>
                                 </div>
                                 <div>
-                                    <h2 class="text-right text-3xl pt-5 pb-2 pr-40 text-red-800">Let's bust a move...</h2>
                                     <h3 class="pt-10 pl-5 font-bold text-gray-800 text-2xl font-['Quicksand']"> description </h3>
                                     <br></br>
                                     <h2 class="pl-5 font-bold text-gray-800 text-2xl font-['Quicksand']"> description </h2>

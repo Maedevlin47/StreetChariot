@@ -32,12 +32,12 @@ function Navbar ({user}) {
                     </ul>
                     </div>
                     ) : (
-                    <div className="text-sm lg:flex-grow space-x-9">
-                    <ul className="mb-2 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-8">
-                        <NavLink className="block mt-4 underline underline-offset-2 font-['Quicksand'] extrabold text-4xl lg:inline-block lg:mt-0 text-red-800 hover:text-red-200" to="/login">Login</NavLink>
-                        <br />
-                        <NavLink className="block mt-4 underline underline-offset-2 font-['Quicksand'] extrabold text-4xl lg:inline-block lg:mt-0 text-red-800 hover:text-red-200" to="/signup">Signup</NavLink>
-                    </ul>
+                    <div className="text-sm lg:flex-grow space-x-9 font-bold">
+                        <ul className="mb-2 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-8">
+                            <NavLink className="block mt-4 underline underline-offset-2 font-['Quicksand'] extrabold text-4xl lg:inline-block lg:mt-0 text-red-800 hover:text-red-200" to="/login">Login</NavLink>
+                            <br />
+                            <NavLink className="block mt-4 underline underline-offset-2 font-['Quicksand'] extrabold text-4xl lg:inline-block lg:mt-0 text-red-800 hover:text-red-200" to="/signup">Signup</NavLink>
+                        </ul>
                     </div>
                     )
                 }
