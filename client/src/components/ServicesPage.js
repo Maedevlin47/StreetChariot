@@ -37,12 +37,14 @@ function ServicesPage({user, setUser, service, services, favorites , setFavorite
                     <br />
                         <div class ="font-bold text-3xl text-center underline decoration-4 underline-offset-2 text-red-400">{service.name}</div>
                         <br/>
-                        <ul class="list-disc">
-                            <li class ="font-bold text-2xl">{service.travel_type}</li>
-                            <br />
-                            <li class ="font-bold text-2xl link link-primary" href= {service.website}>Website!</li>
-                            <br />
-                        </ul>
+                        <div class="list-disc">
+                            <li class="font-bold text-2xl"> {service.travel_type}</li>
+                        <br />
+                            <li>
+                            <a class ="font-bold text-2xl link link-primary" href={service.website}>Website!</a>
+                            </li>
+                        <br />
+                        </div>
                         <br />
                         <div class ="font-bold text-2xl">Description of how to set up an account</div>
                         <br />

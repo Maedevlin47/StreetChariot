@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import FavPic from './FavPic';
 
 
@@ -29,22 +29,21 @@ function FavoritesPage({ user, favorites, handleRemoveFavorite }) {
 
 
     return (
-        <body class="min-h-screen text-l p-0 bg-red-300 block items-center justify-center font-['Quicksand'] pb-20">
-            <div className ="pl-10 pt-5 pb-3 font-bold text-4xl text-gray-900 text-center"> {user &&`${user.name}`}'s Favorites!</div>
+        <body>
+        <div class=" mx-18 min-h-screen text-l p-0 bg-red-300 items-center justify-center font-['Quicksand'] pb-20">
+
+            <div className ="pt-5 pb-3 font-bold text-4xl text-gray-900 text-center"> {user &&`${user.name}`}'s Favorites!</div>
             <div>
-                <FavPic class= "w-full h-auto hidden lg:block"></FavPic>
-            </div>
+                <FavPic class= "lg:block"></FavPic>
+            </div> 
             <div className="container mx-auto bg-red-200 max-w-l w-full rounded-l-lg">
-                {/* <div>
-                    <FavPic class= "w-full h-auto hidden lg:block"></FavPic>
-                </div> */}
                 {favorites.map((service, index) => {
                 return (
                     <div>
                         <br />
                         <div className="pl-20 grid grid-cols-4 gap-20 gap-y-10 text-l pb-20 pt-20 pr-20" key={index}>
                             <p class ="font-bold text-3xl text-center text-red-400">{service.name}</p>
-                            <a class = "font-bold text-xl link link-primary"href= {service.website}>{service.name} Website </a>
+                            <a class = "font-bold text-xl link link-primary" href={service.website}>{service.name} Website </a>
                             <p class = "font-bold text-xl">{service.travel_type}</p>
                         {/* <br /> */}
                         <div class="md:col-span-5 text-center animate-bounce w-3 h-3 text-justify">
@@ -58,6 +57,7 @@ function FavoritesPage({ user, favorites, handleRemoveFavorite }) {
                     </div>
                 );
             })}
+            </div>
             </div>
         </body>
     );
