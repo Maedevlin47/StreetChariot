@@ -1,4 +1,5 @@
-import './App.css';
+// import './App.css';
+import React from "react";
 import {useEffect, useState } from 'react';
 import {Route, Routes} from 'react-router-dom';
 import SignUp from './SignUp';
@@ -10,114 +11,141 @@ import ServicesPage from './ServicesPage';
 import FavoritesPage from "./FavoritesPage";
 import UserProfile from './UserProfile';
 import Footer from './Footer';
-import TaxiCab from './TaxiCab.jpg';
-// import { BrowserRouter as Router } from 'react-router-dom'
-// import ServicesButton from './ServicesButton';
+import MainPic from './MainPic';
+import MedTitle from './MedTitle';
 
+import 'tailwindcss/tailwind.css';
 
 
 function App() {
-    const [user, setUser]= useState(null)
+      const [user, setUser]= useState(null)
+      
+      console.log(user)
+
+      useEffect(() =>{
+        fetch("/user_logged_in")
+        .then (r => { 
+          if (r.ok) {
+            r.json().then((user) => setUser(user))
+          }
+        } )
+      },[])
     
     console.log(user)
-
-    useEffect(() =>{
-      fetch("/user_logged_in")
-      .then (r => { 
-        if (r.ok) {
-          r.json().then((user) => setUser(user))
-        }
-      } )
-    },[])
-  
-  console.log(user)
-  
-  const [services, setServices] = useState([]);
-  
     
-  useEffect(() => {
-      fetch("/services")
-      .then(r => {
-          if(r.ok) {
-              r.json().then ((serviceData) => setServices(serviceData));
-          }
-      })
-    }, [user]);
-  
-// to delete a favorite in favorites page
-  function handleRemoveFavorite(id) {
-    const updateFavoriteArray = user.services.filter ((service) => service.id !== id);
-    setUser({...user, services: updateFavoriteArray});
-  }
+    const [services, setServices] = useState([]);
+    
+      
+    useEffect(() => {
+        fetch("/services")
+        .then(r => {
+            if(r.ok) {
+                r.json().then ((serviceData) => setServices(serviceData));
+            }
+        })
+      }, [user]);
+    
+  // to delete a favorite in favorites page
+    function handleRemoveFavorite(id) {
+      const updateFavoriteArray = user.services.filter ((service) => service.id !== id);
+      setUser({...user, services: updateFavoriteArray});
+    }
 
 
-  return (
-  
-  <div>
-    <header className="App-header"> Welcome {user &&`${user.name}`}!
-        <div class="container">
-            <h1 class="site-title">StreetChariot</h1>
-          <span class="site-tagline">Let's bust a move!</span>
-        </div>
-      </header>
-      <NavBar className = "main-nav" user = {user}/>
-        <div>
-          <img src={TaxiCab} alt="taxi" className='fpmiddle'/> 
-        </div>
-        <div></div>
-      <Routes>
-          <Route exact path="/signup" element={
-              <SignUp 
-                user= {user} 
-                setUser= {setUser} />}/>
-          <Route exact path="/login" element={
-              <Login  
-                user= {user} 
-                setUser= {setUser} />}/>
-          <Route exact path="/userhome" element={
-              <UserHome 
-              user={user} 
-              setUser ={setUser}/>}/>
-          <Route exact path="/logout" element={
-              <LogOut 
-                user= {user} 
-                setUser= {setUser} />}/>
-          <Route exact path="/servicespage" element={
-              <ServicesPage 
-                user= {user} 
-                setUser= {setUser} 
-                services ={services} 
-                favorites = {user ? user.services : []}
-                />}/>
-          {/* <Route exact path="/favoritespage" element={<FavoritesPage user= {user} setUser= {setUser} />}/> */}
-          <Route exact path="/favoritespage" element={
-              <FavoritesPage 
-                user= {user} 
-                setUser= {setUser} 
-                favorites = {user ? user.services : []}
-                // setFavorites = {setFavorites}
-                handleRemoveFavorite = {handleRemoveFavorite}
-                />}/>
-          <Route exact path="/userprofile" element={
-              <UserProfile 
-                user= {user} 
-                setUser= {setUser} 
-                services = {services} 
-            />}/>
 
-        </Routes>
-        <Footer className = "footer"/>  
+
+    return (
+      <div className="notloggedin">
+      <div className="min-h-screen w-screen bg-fixed">
+      <header className= "text-center font-['Quicksand'] extrabold text-4xl pt-.5 text-red-800">
+        <NavBar class= "font-['Quicksand'] text-4xl" user = {user}/> 
+          <div class="">
+            <MedTitle class="h-1/5"/>
+          </div> 
+        </header>
+        <Routes style={{ backgroundColor: "rgba(255, 255, 255, 0.160)" }}>
+            <Route exact path="/signup" element={
+                <SignUp 
+                  user= {user} 
+                  setUser= {setUser} />}/>
+            <Route exact path="/login" element={
+                <Login  
+                  user= {user} 
+                  setUser= {setUser} />}/>
+            <Route exact path="/userhome" element={
+                <UserHome 
+                user={user} 
+                setUser ={setUser}/>}/>
+            <Route exact path="/logout" element={
+                <LogOut 
+                  user= {user} 
+                  setUser= {setUser} />}/>
+            <Route exact path="/servicespage" element={
+                <ServicesPage 
+                  user= {user} 
+                  setUser= {setUser} 
+                  services ={services} 
+                  favorites = {user ? user.services : []}
+                  />}/>
+            {/* <Route exact path="/favoritespage" element={<FavoritesPage user= {user} setUser= {setUser} />}/> */}
+            <Route exact path="/favoritespage" element={
+                <FavoritesPage 
+                  user= {user} 
+                  setUser= {setUser} 
+                  favorites = {user ? user.services : []}
+                  // setFavorites = {setFavorites}
+                  handleRemoveFavorite = {handleRemoveFavorite}
+                  />}/>
+            <Route exact path="/userprofile" element={
+                <UserProfile 
+                  user= {user} 
+                  setUser= {setUser} 
+                  services = {services} 
+              />}/>
+
+          </Routes>
+          {/* </Container> */}
+          <MainPic/>
+          <Footer className="text-center "/>  
+    </div>
   </div>
 
 
 
-  );
-}
+    );
+  }
 
 export default App;
 
 
 
+
+
+
+
+
+
+
+
+
+
+// import styles from "./index.css"
+
+
+// import Container from '@mui/material/Container';
+// import * as React from 'react';
+
+
+// import * as ReactDOM from 'react-dom/client';
+// import * as React from 'react';
+// import TaxiCab from './TaxiCab.jpg';
+// import { useLocation } from 'react-router-dom';
+// import { BrowserRouter as Router } from 'react-router-dom'
+// import ServicesButton from './ServicesButton';
+
+
+
+{/* <header className= "text-center font-['Quicksand'] extrabold text-5xl pt-10 text-red-800"> Welcome {user &&`${user.name}`}! */}
 
 
 
