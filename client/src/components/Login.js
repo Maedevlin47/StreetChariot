@@ -56,11 +56,11 @@ function Login({ user, setUser, createAccBtn} ) {
             </div>
             {/* <!-- Col --> */}
 
-            <div class="w-full lg:w-1/2 bg-red-400 p-5 rounded-lg lg:rounded-l-none text-neutral-900">
+            <div class="w-full lg:w-1/2 bg-rose-300 p-5 rounded-lg lg:rounded-l-none text-neutral-900">
                 <h3 class="pt-4 pb-2 bold text-2xl text-center text-neutral-900">Welcome Back!</h3>
 
                 {/* <div className = "pt-10 pb-10" style={{ backgroundColor: "rgba(255, 255, 255, 0.160)" }}> */}
-                <form className="px-8 pt-6 pb-8 mb-4 bg-white rounded text-neutral-900" onSubmit={handleSubmit}>
+                <form className="px-8 pt-6 pb-8 mb-4 bg-stone-200 rounded text-neutral-900" onSubmit={handleSubmit}>
                     <div class="mb-4">
                         <label class="block mb-2 text-m font-bold text-gray-900" for="username">
                         Username
@@ -85,7 +85,7 @@ function Login({ user, setUser, createAccBtn} ) {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     <div class=" md:col-span-5 text-right pt-7 font-['Quicksand']">
-                        <div class="inline-block items-end text-lg btn bg-sky-900">
+                        <div class="inline-block items-end text-lg btn bg-rose-800">
                             <button className="opacity-00 hover:opacity-50 text-white font-bold py-2 px-4" type="submit">LOGIN</button>
                         
                         </div>
@@ -101,9 +101,6 @@ function Login({ user, setUser, createAccBtn} ) {
                         No Account?  No problem!
                     </div>
                     <CreateAccBtn/>
-                    {/* <div class="text-center inline-block text-m text-blue-500 align-baseline hover:text-blue-800" 
-                        src={createAccBtn}>
-                    </div> */}
                 </form>
                 {errors? <div className = "error-message">{errors}</div>: null}
             </div>

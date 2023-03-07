@@ -1,7 +1,3 @@
-// import * as React from 'react';
-// import Card from '@material-ui/core/Card';
-
-// import { Link } from "react-router-dom";
 
 function ServicesPage({user, setUser, service, services, favorites , setFavorites}) {
     console.log(services)
@@ -33,9 +29,9 @@ function ServicesPage({user, setUser, service, services, favorites , setFavorite
     
     const serviceList = services.map((service) => {
             return (
-                <div class = "" key={service.id}>
+                <div key={service.id}>
                     <br />
-                        <div class ="font-bold text-3xl text-center underline decoration-4 underline-offset-2 text-red-400">{service.name}</div>
+                        <div class ="font-bold text-3xl text-center underline decoration-4 underline-offset-2 text-rose-500">{service.name}</div>
                         <br/>
                         <div class="list-disc">
                             <li class="font-bold text-2xl"> {service.travel_type}</li>
@@ -49,7 +45,7 @@ function ServicesPage({user, setUser, service, services, favorites , setFavorite
                         <div class ="font-bold text-2xl">Description of how to set up an account</div>
                         <br />
                         <div class="md:col-span-5 text-center animate-bounce w-3 h-3">
-                            <div class="btn-circle w-60 inline-block bg-red-800 text-lg">
+                            <div class="btn-circle w-60 inline-block bg-rose-800 text-lg">
                                 <button class ="justify-center text-xl opacity-100 hover:opacity-30 text-white pt-2 py-py px-4" onClick = {() => {handleClick(service)} }>Add to favorites</button>
                             </div>
                         </div>
@@ -58,10 +54,10 @@ function ServicesPage({user, setUser, service, services, favorites , setFavorite
             })
     
     return ( 
-        <div class="min-h-screen text-l p-0 bg-red-300 block items-center justify-center font-['Quicksand'] pb-20">
+        <div class="min-h-screen text-l p-0 bg-rose-300 block items-center justify-center font-['Quicksand'] pb-20">
                 <div className ="pl-10 pt-5 pb-5 font-bold text-4xl text-gray-900">Let's get you cooking with gass!</div>
 
-            <div className="container mx-auto bg-white max-w-l w-full rounded-l-lg"> 
+            <div className="container mx-auto bg-stone-100 max-w-l w-full rounded-l-lg"> 
                 <div>
                     <h2 className="pl-20 grid grid-cols-3 gap-40 gap-y-30 text-l pb-20 pt-20 pr-20"> 
                         {serviceList}

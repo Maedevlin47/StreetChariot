@@ -10,7 +10,7 @@ function MainPic() {
     const location = useLocation();
 
     return (
-        <div className="grayscale pb-3 min-h-fit min-w-fit" >
+        <div className="grayscale pb-3 min-h-fit min-w-fit pb-36" >
         {location.pathname === '/' ? (
             <img class="grayscale-0" src={TaxiCab} alt="taxi" className='fpmiddle'/> 
 

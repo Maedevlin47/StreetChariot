@@ -7,7 +7,7 @@ function FavoritesButton (){
         return (
             <div className="favorites-button pl-5 text-2xl font-['Quicksand'] text-left font-bold text-gray-600">
                 <NavLink class= "font-bold text-gray-800 inline-block align-baseline opacity-00 hover:opacity-50" to='/favoritespage'>
-                    <button class="btn bg-sky-900 text-lg">
+                    <button class="btn bg-rose-800 text-lg">
                     Your Favorites!
                     </button>
                 </NavLink>    

@@ -32,8 +32,8 @@ function UserProfile ({user, setUser}) {
 
     return (
 
-    <div class="min-h-screen p-0 bg-red-400 flex items-top justify-center font-['Quicksand']">
-                    <div class="flex justify-center ">
+    <div class="min-h-screen p-0 bg-rose-300 flex items-top justify-center font-['Quicksand']">
+            <div class="flex justify-center ">
                 {/* <!-- Row --> */}
             <div class="w-full xl:w-3/4 lg:w-11/12 flex">
                 {/* <!-- Col --> */}
@@ -109,7 +109,7 @@ function UserProfile ({user, setUser}) {
                             </div>
                         <br />
                             <div class="md:col-span-5 text-center animate-bounce w-3 h-3 text-justify pt-10 pb-16 mx-40">
-                                <div class="btn-circle btn-horizontal w-40 bg-red-800 text-lg">
+                                <div class="btn-circle btn-horizontal w-40 bg-rose-800 text-lg">
                                     <button class="opacity-100 hover:opacity-50 text-white font-bold py-2 px-4 rounded"
                                         type="submit">
                                         Save Profile</button>

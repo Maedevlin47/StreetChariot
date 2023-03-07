@@ -13,12 +13,17 @@ import UserProfile from './UserProfile';
 import Footer from './Footer';
 import MainPic from './MainPic';
 import MedTitle from './MedTitle';
-
+import WelcomeWUp from "./WelcomeWUp";
 import 'tailwindcss/tailwind.css';
+import { useLocation } from 'react-router-dom';
 
 
 function App() {
-      const [user, setUser]= useState(null)
+      
+  const location = useLocation();
+
+  
+  const [user, setUser]= useState(null)
       
       console.log(user)
 
@@ -56,64 +61,63 @@ function App() {
 
     return (
       <div className="notloggedin">
-      <div className="min-h-screen w-screen bg-fixed">
-      <header className= "text-center font-['Quicksand'] extrabold text-4xl pt-.5 text-red-800">
-        <NavBar class= "font-['Quicksand'] text-4xl" user = {user}/> 
-          <div class="">
-            <MedTitle class="h-1/5"/>
-          </div> 
-        </header>
-        <Routes style={{ backgroundColor: "rgba(255, 255, 255, 0.160)" }}>
-            <Route exact path="/signup" element={
-                <SignUp 
-                  user= {user} 
-                  setUser= {setUser} />}/>
-            <Route exact path="/login" element={
-                <Login  
-                  user= {user} 
-                  setUser= {setUser} />}/>
-            <Route exact path="/userhome" element={
-                <UserHome 
-                user={user} 
-                setUser ={setUser}/>}/>
-            <Route exact path="/logout" element={
-                <LogOut 
-                  user= {user} 
-                  setUser= {setUser} />}/>
-            <Route exact path="/servicespage" element={
-                <ServicesPage 
-                  user= {user} 
-                  setUser= {setUser} 
-                  services ={services} 
-                  favorites = {user ? user.services : []}
-                  />}/>
-            {/* <Route exact path="/favoritespage" element={<FavoritesPage user= {user} setUser= {setUser} />}/> */}
-            <Route exact path="/favoritespage" element={
-                <FavoritesPage 
-                  user= {user} 
-                  setUser= {setUser} 
-                  favorites = {user ? user.services : []}
-                  // setFavorites = {setFavorites}
-                  handleRemoveFavorite = {handleRemoveFavorite}
-                  />}/>
-            <Route exact path="/userprofile" element={
-                <UserProfile 
-                  user= {user} 
-                  setUser= {setUser} 
-                  services = {services} 
-              />}/>
-
-          </Routes>
-          {/* </Container> */}
-          <MainPic/>
-          <Footer className="text-center "/>  
+        <div className="min-h-screen w-screen bg-fixed">
+        <header className= "text-center font-['Quicksand'] extrabold text-4xl pt-.5 text-rose-500">
+          <NavBar class= "font-['Quicksand'] text-4xl" user = {user}/> 
+            <div class="">
+              <MedTitle class="h-1/5"/>
+            </div> 
+          </header>
+          <Routes style={{ backgroundColor: "rgba(255, 255, 255, 0.160)" }}>
+              <Route exact path="/signup" element={
+                  <SignUp 
+                    user= {user} 
+                    setUser= {setUser} />}/>
+              <Route exact path="/login" element={
+                  <Login  
+                    user= {user} 
+                    setUser= {setUser} />}/>
+              <Route exact path="/userhome" element={
+                  <UserHome 
+                  user={user} 
+                  setUser ={setUser}/>}/>
+              <Route exact path="/logout" element={
+                  <LogOut 
+                    user= {user} 
+                    setUser= {setUser} />}/>
+              <Route exact path="/servicespage" element={
+                  <ServicesPage 
+                    user= {user} 
+                    setUser= {setUser} 
+                    services ={services} 
+                    favorites = {user ? user.services : []}
+                    />}/>
+              <Route exact path="/favoritespage" element={
+                  <FavoritesPage 
+                    user= {user} 
+                    setUser= {setUser} 
+                    favorites = {user ? user.services : []}
+                    // setFavorites = {setFavorites}
+                    handleRemoveFavorite = {handleRemoveFavorite}
+                    />}/>
+              <Route exact path="/userprofile" element={
+                  <UserProfile 
+                    user= {user} 
+                    setUser= {setUser} 
+                    services = {services} 
+                />}/>
+            </Routes>
+            <MainPic/>
+            <body>
+            {location.pathname === '/' ? (
+              <WelcomeWUp/>
+              ): null}
+              <Footer className="text-center"/>  
+            </body>
+      </div>
     </div>
-  </div>
-
-
-
-    );
-  }
+      );
+    }
 
 export default App;
 

@@ -15,6 +15,21 @@ class ServicesController < ApplicationController
             end
         end
 
+
+        
+
+    private #################################################################################################
+
+    def service_params
+        params.permit(:name, :travel_type, :favorite, :website, :description, :signup, :features)
+    end
+    
+
+
+end
+    
+
+
         # def update 
         #     service = Service.find_by_id(params[:id])
         #     if service.update(favorites: params[:favorites])                
@@ -31,25 +46,10 @@ class ServicesController < ApplicationController
         #         render json: { error: @service.errors.full_messages }, status: :unprocessable_entity
         #     end
         # end
-        
 
-    private #################################################################################################
-
-    def service_params
-        params.permit(:name, :travel_type, :favorite, :website)
-    end
-    
-    # def favorite
+# def favorite
     #     params.permit(:favorite)
     # end
-
-end
-    
-
-
-
-
-
 
 
 

@@ -8,7 +8,7 @@ function HomeDogPic() {
 
     return (
         // <div className="container mx-auto max-w-m bg-white w-full bg-cover rounded-l-lg"> 
-        <div className="container mx-auto max-w-m bg-white w-full bg-cover rounded-l-lg" >
+        <div className="container mx-auto max-w-m bg-stone-100 w-full bg-cover rounded-l-lg" >
             <img class="h-1/4 w-11/12 pb-3" src={HomePageDog} alt="Plane in Palms"/> 
         </div>
         // </div>

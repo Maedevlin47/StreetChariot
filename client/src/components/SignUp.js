@@ -60,13 +60,13 @@ function SignUp ({user, setUser}) {
         // navigate('/userhome')
         
     return (
-        <div class="min-h-screen p-0 bg-red-400 flex items-center justify-center font-['Quicksand']">
+        <div class="min-h-screen p-0 bg-rose-300 flex items-center justify-center font-['Quicksand']">
             <div class="container max-w-screen-lg mx-auto">
                 <div>
                     <h2 class="font-bold text-3xl text-gray-900">Sign up form!</h2>
                     <p class="font-bold text-gray-800 mb-6 text-2xl">Give it a try & find your next ride!</p>
 
-                <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+                <div class="bg-stone-100 rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                     <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
                         <div class="text-gray-900">
                             <p class="font-bold text-2xl">Personal Details</p>
@@ -83,7 +83,7 @@ function SignUp ({user, setUser}) {
                             id="name"
                             placeholder="Full name"
                             autoComplete="off"
-                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                            class="h-10 border mt-1 rounded px-4 w-full bg-stone-200"
                             value={name}
                             onChange={(e) => setName(e.target.value)}/>
                         </label>
@@ -96,7 +96,7 @@ function SignUp ({user, setUser}) {
                             id="username"
                             autoComplete="off"
                             placeholder="Simple is key!"
-                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                            class="h-10 border mt-1 rounded px-4 w-full bg-stone-200"
                             value={userName}
                             onChange={(e) => setUserName(e.target.value)}/>
                         </label>
@@ -108,7 +108,7 @@ function SignUp ({user, setUser}) {
                             type="date"
                             id="birthdate"
                             placeholder="Your Birthday!"
-                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                            class="h-10 border mt-1 rounded px-4 w-full bg-stone-200"
                             value={birthdate}
                             onChange={(e) => setBirthdate(e.target.value)}/>
                         </label>    
@@ -121,7 +121,7 @@ function SignUp ({user, setUser}) {
                             id="city"
                             placeholder="City Name"
                             autoComplete="off"
-                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                            class="h-10 border mt-1 rounded px-4 w-full bg-stone-200"
                             value={city}
                             onChange={(e) => setCity(e.target.value)}/>
                         </label>
@@ -134,7 +134,7 @@ function SignUp ({user, setUser}) {
                             id="state"
                             placeholder="State Abbreviation(NY)"
                             autoComplete="off"
-                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                            class="h-10 border mt-1 rounded px-4 w-full bg-stone-200"
                             value={state}
                             onChange={(e) => setState(e.target.value)}/>
                         </label>    
@@ -147,7 +147,7 @@ function SignUp ({user, setUser}) {
                             type="password"
                             id="password"
                             placeholder="Create Password"
-                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                            class="h-10 border mt-1 rounded px-4 w-full bg-stone-200"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             autoComplete="current-password"/>
@@ -160,7 +160,7 @@ function SignUp ({user, setUser}) {
                             type="password"
                             id="password_confirmation"
                             placeholder="Confirm Password"
-                            class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                            class="h-10 border mt-1 rounded px-4 w-full bg-stone-200"
                             value={passwordConfirmation}
                             onChange={(e) => setPasswordConfirmation(e.target.value)}
                             autoComplete="current-password"/>
@@ -168,7 +168,7 @@ function SignUp ({user, setUser}) {
                     </div>
                 <br/>
                     <div class="md:col-span-5 text-right">
-                        <div class="inline-flex items-end bg-sky-900 text-lg">
+                        <div class="inline-flex items-end bg-rose-800 text-lg">
                             <button class="opacity-100 hover:opacity-50 text-white font-bold py-2 px-4 rounded"
                                 type="submit">
                                 Sign Up</button>
