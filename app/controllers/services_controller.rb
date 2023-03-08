@@ -2,7 +2,9 @@ class ServicesController < ApplicationController
     
         def index
             services = Service.all
-            render json: services
+            puts services.inspect
+            render json: services.as_json(only: [:id, :name, :travel_type, :website, :description, :signup, :features])
+            # render json: services
         end
     
 
@@ -15,17 +17,24 @@ class ServicesController < ApplicationController
             end
         end
 
+        def update
+            service = Service.find_by_id(params[:id])
+            if service.update(service_params)
+                render json: service
+            else
+                render json: {"error": "Unable to update service"}, status: :unprocessable_entity
+            end
+        end
 
+    private 
+
+        def service_params
+            params.permit(:name, :travel_type, :website, :description, :signup, :features)
+        end
         
-
-    private #################################################################################################
-
-    def service_params
-        params.permit(:name, :travel_type, :favorite, :website, :description, :signup, :features)
     end
     
 
-end
     
 
 

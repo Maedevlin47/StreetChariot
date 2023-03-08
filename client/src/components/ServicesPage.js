@@ -1,6 +1,5 @@
 
-function ServicesPage({user, setUser, service, services}) {
-    console.log(services)
+function ServicesPage({user, setUser, services}) {
 
     
     function handleClick (service) {
@@ -16,7 +15,8 @@ function ServicesPage({user, setUser, service, services}) {
         .then((r) =>{
             if (r.ok) {
                 r.json().then((data) => {
-                    setUser({...user, services: [...user.services, data]})
+                    console.log(data);
+                    setUser({...user, services: [...user.services, data]});
                     // copy of the array and adding to the new copy
                 } )
             } else {
@@ -26,7 +26,6 @@ function ServicesPage({user, setUser, service, services}) {
             }
         })
     }
-    
     const serviceList = services.map((service) => {
             return (
                 <div key={service.id}>
@@ -61,6 +60,7 @@ function ServicesPage({user, setUser, service, services}) {
                 </div>
                 )
             })
+            console.log(services)
     
     return ( 
         <div class="min-h-screen text-l p-0 bg-rose-300 block items-center justify-center font-['Quicksand'] pb-20">
