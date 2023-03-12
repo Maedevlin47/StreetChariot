@@ -41,14 +41,19 @@ function ServicesPage({user, setUser, services, favorites}) {
                                             </li>
                                         </ul>
                                     <br />
-                                        <h3 class ="font-bold text-3xl">Description & Features:</h3>
+                                        <h3 class ="font-bold text-3xl">Description:</h3>
                                         <br />
-                                        <p class ="font-bold text-2xl">{service.description}</p>
+                                            <p class ="font-bold text-2xl">{service.description}</p>
                                     <br />
                                     <br />
-                                        <h4 class ="font-bold text-3xl">
+                                        <h4 class ="font-bold text-3xl">Features:</h4>
+                                        <br />
                                             <p class ="font-bold text-2xl">{service.features}</p>
-                                        </h4>
+                                    <br />
+                                    <br />
+                                        <h4 class ="font-bold text-3xl">Create Account:</h4>
+                                    <br />
+                                            <p class ="font-bold text-2xl">{service.signup}</p>
                                     <br />
                                         <h5 class="md:col-span-5 text-center animate-bounce w-3 h-3">
                                             <p class="btn-circle w-60 inline-block bg-rose-600 text-lg">
