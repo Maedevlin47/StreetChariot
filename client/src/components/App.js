@@ -50,6 +50,10 @@ function App() {
         })
       }, [user]);
     
+
+
+
+      
   // to delete a favorite in favorites page
     function handleRemoveFavorite(id) {
       const updateFavoriteArray = user.services.filter ((service) => service.id !== id);

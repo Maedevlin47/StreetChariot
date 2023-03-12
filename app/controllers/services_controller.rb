@@ -2,11 +2,8 @@ class ServicesController < ApplicationController
     
         def index
             services = Service.all
-            puts services.inspect
-            render json: services.as_json(only: [:id, :name, :travel_type, :website, :description, :signup, :features])
-            # render json: services
+            render json: services
         end
-    
 
         def show
             service = Service.find_by_id(params[:id])
@@ -14,15 +11,6 @@ class ServicesController < ApplicationController
                 render json: service
             else 
                 render json: {"error": "No service found"}, status: :not_found
-            end
-        end
-
-        def update
-            service = Service.find_by_id(params[:id])
-            if service.update(service_params)
-                render json: service
-            else
-                render json: {"error": "Unable to update service"}, status: :unprocessable_entity
             end
         end
 
@@ -78,10 +66,18 @@ class ServicesController < ApplicationController
 
 
 
+# def index
+#     services = Service.all
+#     puts services.inspect
+#     render json: services.as_json(only: [:id, :name, :travel_type, :website, :description, :signup, :features])
+# end
 
 
-
-
+# def index
+#     services = Service.all
+#     puts services.inspect
+#     render json: services.as_json(only: [:id, :name, :travel_type, :website, :description, :signup, :features])
+# end
 
 
 
