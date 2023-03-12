@@ -36,7 +36,7 @@ function SignUp ({user, setUser}) {
             if (r.ok) {
                 r.json().then((user) => {
                     setUser(user)
-                    loginRoute("/userhome")
+                    loginRoute("/login")
                 } )
             } else {
                 r.json().then(console.warn);
@@ -60,7 +60,7 @@ function SignUp ({user, setUser}) {
         // navigate('/userhome')
         
     return (
-        <div class="min-h-screen p-0 bg-rose-300 flex items-center justify-center font-['Quicksand']">
+        <div class="min-h-screen p-0 bg-rose-200 flex items-center justify-center font-['Quicksand']">
             <div class="container max-w-screen-lg mx-auto">
                 <div>
                     <h2 class="font-bold text-3xl text-gray-900">Sign up form!</h2>
@@ -190,55 +190,3 @@ export default SignUp;
 
 
 
-
-
-
-
-// "text-lg border-solid border-2 border-indigo-600 outline-indigo-600 backdrop-opacity-95 fill-indigo-500 shadow-lg" 
-
-
-
-
-
-
-
-    // for getting the form to rerender
-    // const [signupData,setSignupData] = useState ('')
-    // ({name: "", username: "", birthdate: "", 
-    // city: "", state: "", password: "", password_confirmation: ""})
-
-
-
-     // useEffect (() => {
-        //     if(user) {
-        //         setSignupData({name: "", username: "", birthdate: "", city: "", state: "", password: "", password_confirmation: ""});
-        //         setUser("")
-        //     }
-        // }, [setUser, signupData]);
-        
-    
-
-
-    // for getting the form to rerender
-    // const [signupData,setSignupData] = useState ({name: "", username: "", birthdate: "", 
-    // city: "", state: "", password: "", password_confirmation: ""})
-    
-    // const handleChange = (e) => {
-    //     setSignupData({[e.target.name]: e.target.value})
-    // }
-
-
-
-    // return (
-    //     <div>
-    //         <form onSubmit={handleSubmit}>
-    //             <h1>Sign Up</h1>
-    //             <br/>
-    //             <label>Name:</label>
-    //             <input
-    //                 type="text"
-    //                 id="name"
-    //                 placeholder="Full name"
-    //                 value={signupData.name}
-    //                 onChange={handleChange}
-    //                 // onChange={(e) => signupData(e.target.value)}

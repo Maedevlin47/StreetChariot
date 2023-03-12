@@ -45,7 +45,7 @@ function Login({ user, setUser, createAccBtn} ) {
 
     return (
         <body className="font-['Quicksand'] min-h-screen">
-            		{/* <!-- Container --> */}
+            	{/* <!-- Container --> */}
             <div class="container mx-auto max-w-sm"> 
                 <div class="flex justify-center my-13">
                 {/* <!-- Row --> */}
@@ -54,13 +54,12 @@ function Login({ user, setUser, createAccBtn} ) {
             <div>         
                 <LoginPic class="w-full h-auto hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"></LoginPic>                
             </div>
-            {/* <!-- Col --> */}
-
-            <div class="w-full lg:w-1/2 bg-rose-300 p-5 rounded-lg lg:rounded-l-none text-neutral-900">
+                {/* <!-- Col --> */}
+            <div class="w-full lg:w-1/2 bg-rose-200 p-5 rounded-lg lg:rounded-l-none text-neutral-900">
                 <h3 class="pt-4 pb-2 bold text-2xl text-center text-neutral-900">Welcome Back!</h3>
 
                 {/* <div className = "pt-10 pb-10" style={{ backgroundColor: "rgba(255, 255, 255, 0.160)" }}> */}
-                <form className="px-8 pt-6 pb-8 mb-4 bg-stone-200 rounded text-neutral-900" onSubmit={handleSubmit}>
+                <form className="px-8 pt-6 pb-8 mb-4 bg-rose-100 rounded text-neutral-900" onSubmit={handleSubmit}>
                     <div class="mb-4">
                         <label class="block mb-2 text-m font-bold text-gray-900" for="username">
                         Username

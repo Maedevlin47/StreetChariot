@@ -32,7 +32,7 @@ function UserProfile ({user, setUser}) {
 
     return (
 
-    <div class="min-h-screen p-0 bg-rose-300 flex items-top justify-center font-['Quicksand']">
+    <div class="min-h-screen p-0 bg-rose-200 flex items-top justify-center font-['Quicksand']">
             <div class="flex justify-center ">
                 {/* <!-- Row --> */}
             <div class="w-full xl:w-3/4 lg:w-11/12 flex">

@@ -1,6 +1,5 @@
 
 import ServicesButton from "./ServicesButton";
-// import FavoritesPage from "./FavoritesPage";
 import FavoritesButton from "./FavoritesButton";
 import HomeDogPic from "./HomeDogPic";
 
@@ -9,7 +8,7 @@ function UserHome ({user, setUser, allservices, setAllServices}) {
 
     
     return (  
-        <body className="min-h-screen text-l p-0 bg-rose-300 block items-center justify-center font-['Quicksand']">
+        <body className="min-h-screen text-l p-0 bg-rose-200 block items-center justify-center font-['Quicksand']">
                 <div class="container mx-auto max-w-sm bg-stone-100 w-full bg-cover rounded-l-lg"> 
                     <div class="flex justify-center my-13">
                         <div class="w-full bg-cover rounded-l-lg pb-40">
@@ -48,7 +47,6 @@ export default UserHome;
 
 
 
-{/* <header>Let's get you moving!</header> */}
 
 
 
@@ -59,39 +57,3 @@ export default UserHome;
 
 
 
-//<ServicesMainPage path="/servicespage" services={allServices}/> 
-
-// const servicesButton = ({user, setUser, allServices}) =>{
-//     const history = useHistory();
-//     return(
-//         <button className="servicebutton" onClick = {() => history.push({
-//             pathname: "/servicespage",
-//             state: {user, setUser, allServices, setAllServices}
-//         })}>
-//             Transportation Services!
-//         </button>
-//     )
-// }
-
-
-
-// useEffect(() => {
-//     fetch("/services")
-//     .then((r) => 
-//     r.json()).then(setAllServices);
-// }, []);
-// console.log(allServices)
-
-
-    // const [allServices, setAllServices] = useState([]);
-
-    
-    // useEffect(() => {
-    //     fetch("/services")
-    //     .then(r => {
-    //         if(r.ok) {
-    //             r.json().then ((allServices) => setAllServices(allServices));
-    //         }
-    //     })
-    // }, []);
-    // console.log(allServices)

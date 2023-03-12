@@ -1,4 +1,3 @@
-// import './App.css';
 import React from "react";
 import {useEffect, useState } from 'react';
 import {Route, Routes} from 'react-router-dom';
@@ -112,12 +111,12 @@ function App() {
                 />}/>
             </Routes>
             <MainPic/>
-            <body>
+            <h2>
             {location.pathname === '/' ? (
               <WelcomeWUp/>
               ): null}
               <Footer className="text-center"/>  
-            </body>
+            </h2>
       </div>
     </div>
       );
@@ -137,131 +136,3 @@ export default App;
 
 
 
-// import styles from "./index.css"
-
-
-// import Container from '@mui/material/Container';
-// import * as React from 'react';
-
-
-// import * as ReactDOM from 'react-dom/client';
-// import * as React from 'react';
-// import TaxiCab from './TaxiCab.jpg';
-// import { useLocation } from 'react-router-dom';
-// import { BrowserRouter as Router } from 'react-router-dom'
-// import ServicesButton from './ServicesButton';
-
-
-
-{/* <header className= "text-center font-['Quicksand'] extrabold text-5xl pt-10 text-red-800"> Welcome {user &&`${user.name}`}! */}
-
-
-
-    // function updateRead() {
-    //     fetch("/services", {
-    //         method: "PATCH",
-    //         headers,
-    //         body: JSON.stringify({ favorites: ++service.favorites }),
-    //         })
-    //     .then((r) => r.json())
-    //     .then((data) => {
-    //             setServiceData({ ...data });
-    //         });
-    //     }
-    //     console.log(setServiceData)
-
-
-// function handleRemoveFavorite(id) {
-//   const updateFavoriteArray = favorites.filter(
-//     (favorite) => favorite.id !== id
-//   );
-//   setFavorites(updateFavoriteArray);
-// }
-
-
-// <button onClick={handleClick}>
-// Go to Transportation Services!
-// </button>
-
-
-// const history = useHistory();
-
-// function handleClick () {
-//     history.push('/servicespage');
-
-// }
-
-
-/* <Route exact path="/signup" element={<SignUp user= {user} setUser= {setUser} />}/>
-<Route exact path="/login" element={<Login  user= {user} setUser= {setUser} />}/> */
-
-
-
-/* <img src={logo} className="App-logo" alt="logo" />
-<p>
-  Edit <code>src/App.js</code> potato.
-</p>
-<a
-  className="App-link"
-  href="https://reactjs.org"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Learn React
-</a> */
-
-
-
-// const history = useHistory();
-
-
-//     const [user, setUser]= useState(null)
-//     console.log(user)
-
-//     useEffect(() =>{
-//       fetch("/user_logged_in")
-//       .then (r => r.json())
-//       .then((user) => setUser(user))
-//       },[])
-  
-//   console.log(user)
-
-        
-//   function handleClick () {
-//       history.push('/servicespage');
-
-//   }
-
-
-//   return (
-//     <div className="App">
-//       <header className="App-header">Welcome
-//       <NavBar user = {user}/>
-//       </header>
-//       <button onClick={handleClick}>
-//       Go to Transportation Services!
-//       </button>
-//       <ServicesButton />
-//       <Routes>
-//         <Route exact path="/signup" element={<SignUp user= {user} setUser= {setUser} />}/>
-//         <Route exact path="/login" element={<Login  user= {user} setUser= {setUser} />}/>
-//         <Route exact path="/userhome" element={<UserHome user={user} setUser ={setUser}/>}/>
-//         <Route exact path="/logout" element={<LogOut user= {user} setUser= {setUser} />}/>
-//       </Routes>
-
-
-//     </div>
-//   );
-// }
-
-// export default App;
-
-// function favoriteService(service) {
-//   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-//   favorites.push(service);
-//   localStorage.setItem("favorites", JSON.stringify(favorites));
-//   }
-
-// function getFavorites() {
-//   return JSON.parse(localStorage.getItem("favorites")) || [];
-//   }

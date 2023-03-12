@@ -14,7 +14,7 @@ function LogOut({user, setUser}) {
 
     console.log(user)
     return (
-    <div class="mt-12 bg-rose-300 flex items-center justify-top font-['Quicksand']">
+    <div class="mt-12 bg-rose-200 flex items-center justify-top font-['Quicksand']">
         <div class="container max-w-screen-lg max-h-screen-mx-auto">
             <div class="bg-stone-100 w-screen rounded shadow-lg md:p-8 mb-40 mt-40">
             <div>
