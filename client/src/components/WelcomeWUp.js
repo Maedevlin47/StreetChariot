@@ -1,8 +1,6 @@
-import { useLocation } from 'react-router-dom';
 
 function WelcomeWUp() {
     
-    const location = useLocation();
 
     
     return ( 

@@ -45,7 +45,7 @@ function FavoritesPage({ user, favorites, handleRemoveFavorite }) {
                             <a class = "font-bold text-xl link link-primary" href={service.website}>{service.name} Website </a>
                             <p class = "font-bold text-xl">{service.travel_type}</p>
                         <div class="md:col-span-5 text-center animate-bounce w-3 h-3 text-justify">
-                            <div class="btn-circle btn-horizontal w-60 inline-block bg-rose-800 text-lg">
+                            <div class="btn-circle btn-horizontal w-60 inline-block bg-rose-600 text-lg">
                                 <button class ="justify-right text-xl opacity-100 hover:opacity-30 text-white pt-2 py-py px-4"
                                     onClick = {() => handleDelete(user, service)}> Remove Favorite
                                 </button>

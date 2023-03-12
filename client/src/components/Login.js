@@ -84,7 +84,7 @@ function Login({ user, setUser, createAccBtn} ) {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     <div class=" md:col-span-5 text-right pt-7 font-['Quicksand']">
-                        <div class="inline-block items-end text-lg btn bg-rose-800">
+                        <div class="inline-block items-end text-lg btn bg-rose-600">
                             <button className="opacity-00 hover:opacity-50 text-white font-bold py-2 px-4" type="submit">LOGIN</button>
                         
                         </div>

@@ -109,7 +109,7 @@ function UserProfile ({user, setUser}) {
                             </div>
                         <br />
                             <div class="md:col-span-5 text-center animate-bounce w-3 h-3 text-justify pt-10 pb-16 mx-40">
-                                <div class="btn-circle btn-horizontal w-40 bg-rose-800 text-lg">
+                                <div class="btn-circle btn-horizontal w-40 bg-rose-600 text-lg">
                                     <button class="opacity-100 hover:opacity-50 text-white font-bold py-2 px-4 rounded"
                                         type="submit">
                                         Save Profile</button>

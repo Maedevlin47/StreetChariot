@@ -168,7 +168,7 @@ function SignUp ({user, setUser}) {
                     </div>
                 <br/>
                     <div class="md:col-span-5 text-right">
-                        <div class="inline-flex items-end bg-rose-800 text-lg">
+                        <div class="inline-flex items-end bg-rose-600 text-lg">
                             <button class="opacity-100 hover:opacity-50 text-white font-bold py-2 px-4 rounded"
                                 type="submit">
                                 Sign Up</button>

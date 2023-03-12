@@ -65,7 +65,7 @@ function ServicesPage({user, setUser, services, favorites}) {
     
         return ( 
             <div class="min-h-screen text-l p-0 bg-rose-200 block items-center justify-center font-['Quicksand'] pb-20">
-                <div className ="pl-10 pt-5 pb-5 font-bold text-5xl text-rose-800">Let's get you cooking with gas!</div>
+                <div className ="pl-10 pt-5 pb-5 font-bold text-5xl text-rose-600">Let's get you cooking with gas!</div>
                     <div className="container mx-auto bg-stone-100 max-w-l w-full rounded-l-lg"> 
                         <div>
                             <h2 className="pl-20 grid grid-cols-3 gap-40 gap-y-30 text-l pb-20 pt-20 pr-20"> 
